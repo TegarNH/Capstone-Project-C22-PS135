@@ -53,13 +53,12 @@
         app:layout_constraintStart_toStartOf="@id/title_landing"
         app:layout_constraintTop_toBottomOf="@id/title_landing" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_get_started"
-        style="@style/Widget.Material3.Button.OutlinedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="60dp"
-        android:backgroundTint="@color/blue_700"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/button"
         android:drawableEnd="@drawable/ic_baseline_double_arrow_24"
         android:paddingStart="36dp"
         android:paddingTop="12dp"
@@ -72,7 +71,6 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:strokeColor="@color/blue_700" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
