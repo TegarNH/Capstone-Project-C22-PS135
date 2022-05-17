@@ -1,4 +1,16 @@
 <resources>
     <string name="app_name">HealthLens</string>
     <string name="content_desc_logo_motto">HealthLens, mind your skin health</string>
+    <string name="content_desc_illustration_landing">Face scan illustration</string>
+    <string name="content_text_title_landing">You have skin concern ? Don’t worries.....</string>
+    <string name="content_text_desc_landing">HealthLens can be developed your skin with dermatologis and customized for you. Detect your face, discover solution and best recomendation products skincare.</string>
+    <string name="text_btn_get_started">Get Started</string>
+
+
+    <string name="prompt_yes">Yes</string>
+    <string name="prompt_cancel">Cancel</string>
+
+    <string name="title_confirmation">Confirmation</string>
+
+    <string name="message_want_logout">Are you sure you want to exit the app?</string>
 </resources>

@@ -2,14 +2,10 @@ package com.teamc22ps135.healthlens.ui
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.view.WindowInsets
-import android.view.WindowManager
 import androidx.activity.viewModels
-import androidx.core.app.ActivityOptionsCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.teamc22ps135.healthlens.R
 import com.teamc22ps135.healthlens.viewmodel.SplashViewModel
@@ -33,7 +29,8 @@ class SplashScreen : AppCompatActivity() {
 
         Handler().postDelayed({
             val intent = Intent(this, LandingActivity::class.java)
-            startActivity(intent, ActivityOptionsCompat.makeSceneTransitionAnimation(this@SplashScreen).toBundle())
+            startActivity(intent)
+            finish()
         }, DELAY_TIME)
     }
 
