@@ -27,10 +27,10 @@
     <string name="rules4">Keep expression neutral</string>
     <string name="rules5">For the best result, make sure your camera got stable</string>
     <string name="process">Process</string>
-    <string name="try_again">Try Again</string>
     <string name="btn_take_selfie">Take a Selfie</string>
     <string name="btn_upload_from_gallery">Upload from gallery</string>
     <string name="content_desc_icon_back">Back to previous page</string>
     <string name="content_desc_switch_camera">Change camera</string>
     <string name="content_desc_btn_capture">Take a picture</string>
+    <string name="btn_try_again">Try Again</string>
 </resources>
