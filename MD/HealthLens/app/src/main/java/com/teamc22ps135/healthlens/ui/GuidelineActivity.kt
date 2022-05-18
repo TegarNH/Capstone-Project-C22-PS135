@@ -7,11 +7,15 @@ import android.graphics.BitmapFactory
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableStringBuilder
+import android.text.style.BulletSpan
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import com.teamc22ps135.healthlens.R
 import com.teamc22ps135.healthlens.databinding.ActivityGuidelineBinding
+import com.teamc22ps135.healthlens.databinding.ActivityMainBinding
 import com.teamc22ps135.healthlens.util.rotateBitmap
 import com.teamc22ps135.healthlens.util.uriToFile
 import java.io.File
@@ -44,7 +48,27 @@ class GuidelineActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_guideline)
+
+        supportActionBar?.hide()
+
+        binding = ActivityGuidelineBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.iconBack.setOnClickListener {
+            super.onBackPressed()
+            finish()
+        }
+
+        val items = arrayOf(getString(R.string.rules1), getString(R.string.rules2), getString(R.string.rules3), getString(R.string.rules4), getString(R.string.rules5))
+        val builder =  SpannableStringBuilder()
+        items.forEach { item ->
+            builder.append(
+                " $item\n\n",
+                BulletSpan(),
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+            )
+        }
+        binding.rulesGuideline.text = builder
     }
 
     private fun startCameraX() {
@@ -72,7 +96,7 @@ class GuidelineActivity : AppCompatActivity() {
                 isBackCamera
             )
             // nampilin hasil gambar harusnya ke reviewdetection
-            binding.ivImage.setImageBitmap(result)
+            //binding.ivImage.setImageBitmap(result)
         }
     }
 
@@ -83,7 +107,7 @@ class GuidelineActivity : AppCompatActivity() {
             val selectedImg: Uri = result.data?.data as Uri
             val myFile = uriToFile(selectedImg, this@GuidelineActivity)
             // nampilin hasil gambar harusnya ke reviewdetection
-            binding.ivImage.setImageURI(selectedImg)
+            //binding.ivImage.setImageURI(selectedImg)
         }
     }
 
