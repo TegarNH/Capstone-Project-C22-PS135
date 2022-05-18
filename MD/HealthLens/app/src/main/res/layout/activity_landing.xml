@@ -28,6 +28,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="48dp"
         android:layout_marginRight="16dp"
+        android:fontFamily="@font/monofonto"
         android:text="@string/content_text_title_landing"
         android:textAlignment="center"
         android:textColor="@color/blue_700"
