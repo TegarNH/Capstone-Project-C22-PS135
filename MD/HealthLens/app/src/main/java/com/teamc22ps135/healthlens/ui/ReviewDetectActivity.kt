@@ -1,27 +1,11 @@
 package com.teamc22ps135.healthlens.ui
 
-import android.Manifest
-import android.animation.AnimatorSet
-import android.animation.ObjectAnimator
-import android.content.Intent
-import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import com.teamc22ps135.healthlens.R
-import com.teamc22ps135.healthlens.databinding.ActivityGuidelineBinding
 import com.teamc22ps135.healthlens.databinding.ActivityReviewDetectBinding
 import com.teamc22ps135.healthlens.util.rotateBitmap
-import com.teamc22ps135.healthlens.util.uriToFile
-import kotlinx.coroutines.supervisorScope
 import java.io.File
 
 class ReviewDetectActivity : AppCompatActivity() {

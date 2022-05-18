@@ -8,7 +8,6 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AlertDialog
 import com.teamc22ps135.healthlens.R
-import com.teamc22ps135.healthlens.databinding.ActivityLandingBinding
 import com.teamc22ps135.healthlens.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

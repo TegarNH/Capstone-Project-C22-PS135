@@ -3,25 +3,18 @@ package com.teamc22ps135.healthlens.ui
 import android.content.Intent
 import android.content.Intent.ACTION_GET_CONTENT
 import android.content.pm.PackageManager
-import android.graphics.BitmapFactory
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableStringBuilder
 import android.text.style.BulletSpan
-import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.camera.core.CameraSelector
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.teamc22ps135.healthlens.R
 import com.teamc22ps135.healthlens.databinding.ActivityGuidelineBinding
-import com.teamc22ps135.healthlens.databinding.ActivityMainBinding
-import com.teamc22ps135.healthlens.util.rotateBitmap
-import com.teamc22ps135.healthlens.util.uriToFile
-import java.io.File
 
 class GuidelineActivity : AppCompatActivity() {
 
