@@ -98,6 +98,8 @@ class GuidelineActivity : AppCompatActivity() {
     private fun startCameraX() {
         val intent = Intent(this, DetectionActivity::class.java)
         launcherIntentCameraX.launch(intent)
+        val intent2 = Intent(this, ReviewDetectActivity::class.java)
+        startActivity(intent2)
     }
 
     private val launcherIntentCameraX = registerForActivityResult(

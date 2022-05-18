@@ -75,14 +75,15 @@ class DetectionActivity : AppCompatActivity() {
                     val intent = Intent()
                     intent.putExtra("picture", photoFile)
                     intent.putExtra(
-                        "isBackCamera",
-                        cameraSelector == CameraSelector.DEFAULT_BACK_CAMERA
+                        "isFrontCamera",
+                        cameraSelector == CameraSelector.DEFAULT_FRONT_CAMERA
                     )
                     setResult(ReviewDetectActivity.CAMERA_X_RESULT, intent)
                     finish()
                 }
             }
         )
+
     }
 
     private fun startCamera() {
