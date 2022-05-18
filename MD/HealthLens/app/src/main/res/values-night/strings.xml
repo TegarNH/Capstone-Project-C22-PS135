@@ -4,4 +4,6 @@
     <string name="rules2">Pull your hair back</string>
     <string name="rules3">Take a selfie</string>
     <string name="rules4">"Keep expression neutral "</string>
+    <string name="process">Process</string>
+    <string name="try_again">Try_Again</string>
 </resources>
