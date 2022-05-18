@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
@@ -34,7 +35,10 @@ class DetectionActivity : AppCompatActivity() {
 
         cameraExecutor = Executors.newSingleThreadExecutor()
 
-        binding.captureImage.setOnClickListener { takePhoto() }
+        binding.captureImage.setOnClickListener {
+            takePhoto()
+        }
+
         binding.switchCamera.setOnClickListener {
             cameraSelector = if (cameraSelector.equals(CameraSelector.DEFAULT_BACK_CAMERA)) CameraSelector.DEFAULT_FRONT_CAMERA
             else CameraSelector.DEFAULT_BACK_CAMERA
@@ -59,6 +63,7 @@ class DetectionActivity : AppCompatActivity() {
         val photoFile = createFile(application)
 
         val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile).build()
+
         imageCapture.takePicture(
             outputOptions,
             ContextCompat.getMainExecutor(this),
@@ -72,22 +77,21 @@ class DetectionActivity : AppCompatActivity() {
                 }
 
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
-                    val intent = Intent()
+                    val intent = Intent(this@DetectionActivity, ReviewDetectActivity::class.java)
                     intent.putExtra("picture", photoFile)
                     intent.putExtra(
                         "isFrontCamera",
                         cameraSelector == CameraSelector.DEFAULT_FRONT_CAMERA
                     )
-                    setResult(ReviewDetectActivity.CAMERA_X_RESULT, intent)
+                    intent.putExtra("resultCode", ReviewDetectActivity.CAMERA_X_RESULT)
+                    startActivity(intent)
                     finish()
                 }
             }
         )
-
     }
 
     private fun startCamera() {
-
         val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
 
         cameraProviderFuture.addListener({

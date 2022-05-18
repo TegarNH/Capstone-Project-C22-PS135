@@ -10,8 +10,10 @@ import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableStringBuilder
 import android.text.style.BulletSpan
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.camera.core.CameraSelector
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.teamc22ps135.healthlens.R
@@ -97,25 +99,7 @@ class GuidelineActivity : AppCompatActivity() {
 
     private fun startCameraX() {
         val intent = Intent(this, DetectionActivity::class.java)
-        launcherIntentCameraX.launch(intent)
-        val intent2 = Intent(this, ReviewDetectActivity::class.java)
-        startActivity(intent2)
-    }
-
-    private val launcherIntentCameraX = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ) {
-        if (it.resultCode == CAMERA_X_RESULT) {
-            val myFile = it.data?.getSerializableExtra("picture") as File
-            val isBackCamera = it.data?.getBooleanExtra("isBackCamera", true) as Boolean
-
-            val result = rotateBitmap(
-                BitmapFactory.decodeFile(myFile.path),
-                isBackCamera
-            )
-            // nampilin hasil gambar harusnya ke reviewdetection
-            //binding.ivImage.setImageBitmap(result)
-        }
+        startActivity(intent)
     }
 
     private fun startGallery() {
@@ -131,16 +115,16 @@ class GuidelineActivity : AppCompatActivity() {
     ) { result ->
         if (result.resultCode == RESULT_OK) {
             val selectedImg: Uri = result.data?.data as Uri
-            val myFile = uriToFile(selectedImg, this@GuidelineActivity)
-            // nampilin hasil gambar harusnya ke reviewdetection
-            //binding.ivImage.setImageURI(selectedImg)
+
+            val intent = Intent(this@GuidelineActivity, ReviewDetectActivity::class.java)
+            intent.putExtra("uri", selectedImg)
+            intent.putExtra("resultCode", ReviewDetectActivity.GALLERY_RESULT)
+            startActivity(intent)
         }
     }
 
     companion object {
-        const val CAMERA_X_RESULT = 200
         private val REQUIRED_PERMISSIONS = arrayOf(android.Manifest.permission.CAMERA)
         private const val REQUEST_CODE_PERMISSIONS = 10
     }
-
 }
