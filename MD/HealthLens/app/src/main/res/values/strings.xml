@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">HealthLens</string>
+    <string name="content_desc_logo_motto">HealthLens, mind your skin health</string>
+    <string name="content_desc_illustration_landing">Face scan illustration</string>
+    <string name="content_text_title_landing">You have skin concern ? Don’t worries.....</string>
+    <string name="content_text_desc_landing">HealthLens can be developed your skin with dermatologis and customized for you. Detect your face, discover solution and best recomendation products skincare.</string>
+    <string name="text_btn_get_started">Get Started</string>
+    <string name="prompt_yes">Yes</string>
+    <string name="prompt_cancel">Cancel</string>
+    <string name="title_confirmation">Confirmation</string>
+    <string name="message_want_logout">Are you sure you want to exit the app?</string>
+    <string name="text_menu_language">Language</string>
+    <string name="tv_choose_detection">Choose Detection</string>
+    <string name="text_content_desc_skin_problems">Picture Skin Problems</string>
+    <string name="text_content_desc_skin_type">Picture Skin Type</string>
+    <string name="title_skin_problems">Skin Problems</string>
+    <string name="text_content_desc_icon_arrow">Click here</string>
+    <string name="detail_skin_problems">Can detect Acne, Wrinkles, Dark Spots, and Puff Eyes</string>
+    <string name="title_skin_type">Skin Type</string>
+    <string name="detail_skin_type">Can detect Normal Skin, Dry Skin, Oily Skin and Sensitive Skin</string>
+    <string name="title_information">Information</string>
+    <string name="desc_information_home">It’s new innovation with technology and dematologist. This app can be scan your skin type and skin problem, plus we can give solution and best skincare for result!</string>
 </resources>

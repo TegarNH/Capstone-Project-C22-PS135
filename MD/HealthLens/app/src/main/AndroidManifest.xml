@@ -11,7 +11,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/logo_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.HealthLens"
+        android:theme="@style/Theme.HealthLens.SplashScreen"
         tools:targetApi="31">
         <activity
             android:name=".ui.ResultActivity"
@@ -33,6 +33,7 @@
             android:exported="false" />
         <activity
             android:name=".ui.SplashScreen"
+            android:theme="@style/Theme.HealthLens.SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

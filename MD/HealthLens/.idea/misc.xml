@@ -3,7 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Programming/ProjectDicoding/MyProject/Capstone/Capstone-Project-C22-PS135/MD/HealthLens/app/src/main/res/drawable/bg_card_info_home.xml" value="0.182" />
+        <entry key="..\:/Programming/ProjectDicoding/MyProject/Capstone/Capstone-Project-C22-PS135/MD/HealthLens/app/src/main/res/drawable/bg_frame_rounded_white.xml" value="0.182" />
+        <entry key="..\:/Programming/ProjectDicoding/MyProject/Capstone/Capstone-Project-C22-PS135/MD/HealthLens/app/src/main/res/drawable/button.xml" value="0.182" />
         <entry key="..\:/Programming/ProjectDicoding/MyProject/Capstone/Capstone-Project-C22-PS135/MD/HealthLens/app/src/main/res/drawable/logo_background.xml" value="0.182" />
+        <entry key="..\:/Programming/ProjectDicoding/MyProject/Capstone/Capstone-Project-C22-PS135/MD/HealthLens/app/src/main/res/layout/activity_detection.xml" value="0.2" />
+        <entry key="..\:/Programming/ProjectDicoding/MyProject/Capstone/Capstone-Project-C22-PS135/MD/HealthLens/app/src/main/res/layout/activity_landing.xml" value="0.176" />
+        <entry key="..\:/Programming/ProjectDicoding/MyProject/Capstone/Capstone-Project-C22-PS135/MD/HealthLens/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Programming/ProjectDicoding/MyProject/Capstone/Capstone-Project-C22-PS135/MD/HealthLens/app/src/main/res/layout/activity_splash_screen.xml" value="0.2" />
+        <entry key="..\:/Programming/ProjectDicoding/MyProject/Capstone/Capstone-Project-C22-PS135/MD/HealthLens/app/src/main/res/menu/option_menu.xml" value="0.25" />
       </map>
     </option>
   </component>
