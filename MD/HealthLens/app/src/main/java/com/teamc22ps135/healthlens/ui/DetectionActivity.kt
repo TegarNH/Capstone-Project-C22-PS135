@@ -23,7 +23,7 @@ class DetectionActivity : AppCompatActivity() {
     private lateinit var binding : ActivityDetectionBinding
     private lateinit var cameraExecutor: ExecutorService
 
-    private var cameraSelector: CameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
+    private var cameraSelector: CameraSelector = CameraSelector.DEFAULT_FRONT_CAMERA
     private var imageCapture: ImageCapture? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,6 +31,7 @@ class DetectionActivity : AppCompatActivity() {
 
         binding = ActivityDetectionBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         cameraExecutor = Executors.newSingleThreadExecutor()
 
         binding.captureImage.setOnClickListener { takePhoto() }

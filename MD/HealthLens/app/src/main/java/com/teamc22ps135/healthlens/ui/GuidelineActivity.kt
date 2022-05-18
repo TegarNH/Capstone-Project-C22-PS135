@@ -12,6 +12,7 @@ import android.text.SpannableStringBuilder
 import android.text.style.BulletSpan
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.teamc22ps135.healthlens.R
 import com.teamc22ps135.healthlens.databinding.ActivityGuidelineBinding
@@ -38,6 +39,9 @@ class GuidelineActivity : AppCompatActivity() {
                     Toast.LENGTH_SHORT
                 ).show()
                 finish()
+            }
+            if (allPermissionsGranted()) {
+                startCameraX()
             }
         }
     }
@@ -69,19 +73,31 @@ class GuidelineActivity : AppCompatActivity() {
             )
         }
         binding.rulesGuideline.text = builder
+
+        binding.btnSelfie.setOnClickListener {
+            accessCamera()
+        }
+
+        binding.btnGallery.setOnClickListener {
+            startGallery()
+        }
+    }
+
+    private fun accessCamera() {
+        if (!allPermissionsGranted()) {
+            ActivityCompat.requestPermissions(
+                this,
+                REQUIRED_PERMISSIONS,
+                REQUEST_CODE_PERMISSIONS
+            )
+        } else {
+            startCameraX()
+        }
     }
 
     private fun startCameraX() {
         val intent = Intent(this, DetectionActivity::class.java)
         launcherIntentCameraX.launch(intent)
-    }
-
-    private fun startGallery() {
-        val intent = Intent()
-        intent.action = ACTION_GET_CONTENT
-        intent.type = "image/*"
-        val chooser = Intent.createChooser(intent, "Choose a Picture")
-        launcherIntentGallery.launch(chooser)
     }
 
     private val launcherIntentCameraX = registerForActivityResult(
@@ -98,6 +114,14 @@ class GuidelineActivity : AppCompatActivity() {
             // nampilin hasil gambar harusnya ke reviewdetection
             //binding.ivImage.setImageBitmap(result)
         }
+    }
+
+    private fun startGallery() {
+        val intent = Intent()
+        intent.action = ACTION_GET_CONTENT
+        intent.type = "image/*"
+        val chooser = Intent.createChooser(intent, "Choose a Picture")
+        launcherIntentGallery.launch(chooser)
     }
 
     private val launcherIntentGallery = registerForActivityResult(
