@@ -49,55 +49,48 @@
             android:textSize="18sp" />
     </LinearLayout>
 
-    <FrameLayout
-        android:id="@+id/frame_bottom"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
+        android:orientation="vertical"
         android:paddingTop="12dp"
         android:paddingBottom="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_selfie"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="190dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            tools:ignore="UselessParent">
+            android:layout_gravity="center"
+            android:backgroundTint="@color/blue_700"
+            android:text="@string/btn_take_selfie"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:cornerRadius="15dp"
+            app:rippleColor="@color/blue_200"
+            app:strokeColor="@color/blue_700" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_selfie"
-                style="@style/Widget.Material3.Button.OutlinedButton"
-                android:layout_width="190dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:backgroundTint="@color/blue_700"
-                android:text="@string/btn_take_selfie"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:cornerRadius="15dp"
-                app:rippleColor="@color/blue_200"
-                app:strokeColor="@color/blue_700" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_gallery"
-                style="@style/Widget.Material3.Button.OutlinedButton"
-                android:layout_width="190dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="4dp"
-                android:text="@string/btn_upload_from_gallery"
-                android:textAllCaps="false"
-                android:textColor="@color/blue_700"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:cornerRadius="15dp"
-                app:rippleColor="@color/blue_200"
-                app:strokeColor="@color/blue_700"
-                app:strokeWidth="1dp" />
-        </LinearLayout>
-    </FrameLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_gallery"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="4dp"
+            android:text="@string/btn_upload_from_gallery"
+            android:textAllCaps="false"
+            android:textColor="@color/blue_700"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:cornerRadius="15dp"
+            app:rippleColor="@color/blue_200"
+            app:strokeColor="@color/blue_700"
+            app:strokeWidth="1dp" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
