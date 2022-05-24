@@ -8,16 +8,32 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AlertDialog
 import com.teamc22ps135.healthlens.R
+import com.teamc22ps135.healthlens.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
         supportActionBar?.apply {
             setDisplayShowHomeEnabled(true)
             setDisplayUseLogoEnabled(true)
             setLogo(R.mipmap.logo)
+        }
+
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.skinProblemsDetection.setOnClickListener {
+            val intent = Intent(this, GuidelineActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.skinTypeDetection.setOnClickListener {
+            val intent = Intent(this, GuidelineActivity::class.java)
+            startActivity(intent)
         }
     }
 
