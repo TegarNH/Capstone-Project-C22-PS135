@@ -1,9 +1,12 @@
 package com.teamc22ps135.healthlens.ui
 
+import android.content.Context
 import android.graphics.BitmapFactory
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import com.teamc22ps135.healthlens.databinding.ActivityReviewDetectBinding
 import com.teamc22ps135.healthlens.util.rotateBitmap
 import java.io.File
@@ -34,7 +37,14 @@ class ReviewDetectActivity : AppCompatActivity() {
 
         binding.btnProcess.setOnClickListener{
             // Proses API
+            Toast.makeText(this, getStateChooseDetection(), Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun getStateChooseDetection(): String? {
+        val preferences = getSharedPreferences(MainActivity.PREFS_CHOOSE_DETECTION, Context.MODE_PRIVATE)
+        val typeDetection = preferences.getString(MainActivity.KEY_SKIN, null)
+        return typeDetection
     }
 
     private fun setImageFromCamera() {

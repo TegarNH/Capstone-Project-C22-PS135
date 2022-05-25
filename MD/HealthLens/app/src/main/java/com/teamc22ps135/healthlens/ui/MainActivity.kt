@@ -1,5 +1,6 @@
 package com.teamc22ps135.healthlens.ui
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -27,11 +28,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.skinProblemsDetection.setOnClickListener {
+            saveStateChooseDetection(VALUE_SKIN_PROBLEMS)
+
             val intent = Intent(this, GuidelineActivity::class.java)
             startActivity(intent)
         }
 
         binding.skinTypeDetection.setOnClickListener {
+            saveStateChooseDetection(VALUE_SKIN_TYPE)
+
             val intent = Intent(this, GuidelineActivity::class.java)
             startActivity(intent)
         }
@@ -65,5 +70,19 @@ class MainActivity : AppCompatActivity() {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun saveStateChooseDetection(state: String) {
+        val preferences = getSharedPreferences(PREFS_CHOOSE_DETECTION, Context.MODE_PRIVATE)
+        val editor = preferences.edit()
+        editor.putString(KEY_SKIN, state)
+        editor.apply()
+    }
+
+    companion object {
+        private const val VALUE_SKIN_PROBLEMS = "skin problems"
+        private const val VALUE_SKIN_TYPE = "skin type"
+        const val PREFS_CHOOSE_DETECTION = "choose_pref"
+        const val KEY_SKIN = "key_skin"
     }
 }
