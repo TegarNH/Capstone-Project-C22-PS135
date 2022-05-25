@@ -6,4 +6,11 @@
     <string name="rules4">"Keep expression neutral "</string>
     <string name="process">Process</string>
     <string name="try_again">Try_Again</string>
+    <string name="title_result">Result</string>
+    <string name="result_detect">Dry Skin</string>
+    <string name="tv_resume">Resume :</string>
+    <string name="title_recomendation">Recomendation</string>
+    <string name="desc_information_result">"The result is based on probability results. The highest probability, it's more likely to become the result. For the best result, please refers to the guideline for taking the picture. "</string>
+    <string name="list_recomendation">Wash your face up to 2 time a day Don’t forget to use mosturizer</string>
+    <string name="title_produk">Garnier Facial Wash</string>
 </resources>
