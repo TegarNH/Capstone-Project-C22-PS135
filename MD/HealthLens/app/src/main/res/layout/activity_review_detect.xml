@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".ui.ReviewDetectActivity">
 
     <ImageView
@@ -12,6 +13,7 @@
         android:layout_height="0dp"
         android:importantForAccessibility="no"
         app:layout_constraintBottom_toTopOf="@id/bottom_action"
+        app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -24,7 +26,8 @@
         android:background="@color/white"
         android:gravity="center_horizontal"
         android:orientation="horizontal"
-        android:padding="12dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -32,7 +35,7 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_try_again"
             style="@style/Widget.Material3.Button.OutlinedButton"
-            android:layout_width="170dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/btn_try_again"
@@ -48,7 +51,7 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_process"
             style="@style/Widget.Material3.Button.OutlinedButton"
-            android:layout_width="170dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="16dp"

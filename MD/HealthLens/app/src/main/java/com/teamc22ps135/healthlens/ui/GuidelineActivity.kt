@@ -1,20 +1,19 @@
 package com.teamc22ps135.healthlens.ui
 
 import android.content.Intent
-import android.content.Intent.ACTION_GET_CONTENT
 import android.content.pm.PackageManager
-import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableStringBuilder
 import android.text.style.BulletSpan
 import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.canhub.cropper.*
 import com.teamc22ps135.healthlens.R
 import com.teamc22ps135.healthlens.databinding.ActivityGuidelineBinding
+
 
 class GuidelineActivity : AppCompatActivity() {
 
@@ -74,7 +73,7 @@ class GuidelineActivity : AppCompatActivity() {
         }
 
         binding.btnGallery.setOnClickListener {
-            startGallery()
+            startGalleryAndCrop()
         }
     }
 
@@ -95,24 +94,28 @@ class GuidelineActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun startGallery() {
-        val intent = Intent()
-        intent.action = ACTION_GET_CONTENT
-        intent.type = "image/*"
-        val chooser = Intent.createChooser(intent, "Choose a Picture")
-        launcherIntentGallery.launch(chooser)
+    private fun startGalleryAndCrop() {
+        launcherCropImage.launch(
+            options {
+                setImageSource(
+                    includeCamera = false, includeGallery = true
+                )
+                setAspectRatio(aspectRatioX = 1, aspectRatioY = 1)
+            }
+        )
     }
 
-    private val launcherIntentGallery = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ) { result ->
-        if (result.resultCode == RESULT_OK) {
-            val selectedImg: Uri = result.data?.data as Uri
+    private val launcherCropImage = registerForActivityResult(CropImageContract()) { result ->
+        if (result.isSuccessful) {
+            val uriImageCrop = result.uriContent
 
             val intent = Intent(this@GuidelineActivity, ReviewDetectActivity::class.java)
-            intent.putExtra("uri", selectedImg)
+            intent.putExtra("uri", uriImageCrop)
             intent.putExtra("resultCode", ReviewDetectActivity.GALLERY_RESULT)
             startActivity(intent)
+        } else {
+            val exception = result.error
+            Toast.makeText(this, "error: $exception", Toast.LENGTH_SHORT).show()
         }
     }
 

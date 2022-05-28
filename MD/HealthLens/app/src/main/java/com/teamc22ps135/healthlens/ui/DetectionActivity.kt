@@ -1,18 +1,18 @@
 package com.teamc22ps135.healthlens.ui
 
 import android.content.Intent
+import android.media.SoundPool
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Size
 import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
-import androidx.camera.core.CameraSelector
-import androidx.camera.core.ImageCapture
-import androidx.camera.core.ImageCaptureException
-import androidx.camera.core.Preview
+import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
+import com.teamc22ps135.healthlens.R
 import com.teamc22ps135.healthlens.databinding.ActivityDetectionBinding
 import com.teamc22ps135.healthlens.util.createFile
 import java.util.concurrent.ExecutorService
@@ -26,6 +26,10 @@ class DetectionActivity : AppCompatActivity() {
     private var cameraSelector: CameraSelector = CameraSelector.DEFAULT_FRONT_CAMERA
     private var imageCapture: ImageCapture? = null
 
+    private lateinit var sp: SoundPool
+    private var soundId: Int = 0
+    private var spLoaded = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -34,7 +38,10 @@ class DetectionActivity : AppCompatActivity() {
 
         cameraExecutor = Executors.newSingleThreadExecutor()
 
+        loadShutterSound()
+
         binding.captureImage.setOnClickListener {
+            playShutterSound()
             takePhoto()
         }
 
@@ -59,6 +66,26 @@ class DetectionActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         cameraExecutor.shutdown()
+    }
+
+    private fun loadShutterSound() {
+        sp = SoundPool.Builder()
+            .setMaxStreams(10)
+            .build()
+
+        sp.setOnLoadCompleteListener { _, _, status ->
+            if (status == 0) {
+                spLoaded = true
+            }
+        }
+
+        soundId = sp.load(this@DetectionActivity, R.raw.camera, 1)
+    }
+
+    private fun playShutterSound() {
+        if (spLoaded) {
+            sp.play(soundId, 1f, 1f, 0, 0, 1f)
+        }
     }
 
     private fun takePhoto() {
@@ -100,13 +127,16 @@ class DetectionActivity : AppCompatActivity() {
 
         cameraProviderFuture.addListener({
             val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
+
             val preview = Preview.Builder()
                 .build()
                 .also {
                     it.setSurfaceProvider(binding.viewFinder.surfaceProvider)
                 }
 
-            imageCapture = ImageCapture.Builder().build()
+            imageCapture = ImageCapture.Builder().apply {
+                setTargetResolution(Size(1000,1000))
+            }.build()
 
             try {
                 cameraProvider.unbindAll()
@@ -116,7 +146,6 @@ class DetectionActivity : AppCompatActivity() {
                     preview,
                     imageCapture
                 )
-
             } catch (exc: Exception) {
                 Toast.makeText(
                     this@DetectionActivity,

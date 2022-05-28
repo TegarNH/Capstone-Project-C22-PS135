@@ -3,10 +3,9 @@ package com.teamc22ps135.healthlens.ui
 import android.content.Context
 import android.graphics.BitmapFactory
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.teamc22ps135.healthlens.databinding.ActivityReviewDetectBinding
 import com.teamc22ps135.healthlens.util.rotateBitmap
 import java.io.File
