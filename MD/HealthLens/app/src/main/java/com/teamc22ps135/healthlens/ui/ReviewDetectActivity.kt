@@ -41,9 +41,9 @@ class ReviewDetectActivity : AppCompatActivity() {
     }
 
     private fun getStateChooseDetection(): String? {
-        val preferences = getSharedPreferences(MainActivity.PREFS_CHOOSE_DETECTION, Context.MODE_PRIVATE)
-        val typeDetection = preferences.getString(MainActivity.KEY_SKIN, null)
-        return typeDetection
+        val preferences =
+            getSharedPreferences(MainActivity.PREFS_CHOOSE_DETECTION, Context.MODE_PRIVATE)
+        return preferences.getString(MainActivity.KEY_SKIN, null)
     }
 
     private fun setImageFromCamera() {

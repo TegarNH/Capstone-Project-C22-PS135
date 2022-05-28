@@ -101,6 +101,8 @@ class GuidelineActivity : AppCompatActivity() {
                     includeCamera = false, includeGallery = true
                 )
                 setAspectRatio(aspectRatioX = 1, aspectRatioY = 1)
+                setAllowRotation(allowRotation = false)
+                setAllowFlipping(allowFlipping = false)
             }
         )
     }
