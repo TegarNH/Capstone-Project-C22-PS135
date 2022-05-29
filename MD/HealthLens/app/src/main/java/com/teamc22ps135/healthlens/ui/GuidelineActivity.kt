@@ -57,8 +57,14 @@ class GuidelineActivity : AppCompatActivity() {
             finish()
         }
 
-        val items = arrayOf(getString(R.string.rules1), getString(R.string.rules2), getString(R.string.rules3), getString(R.string.rules4), getString(R.string.rules5))
-        val builder =  SpannableStringBuilder()
+        val items = arrayOf(
+            getString(R.string.rules1),
+            getString(R.string.rules2),
+            getString(R.string.rules3),
+            getString(R.string.rules4),
+            getString(R.string.rules5)
+        )
+        val builder = SpannableStringBuilder()
         items.forEach { item ->
             builder.append(
                 " $item\n\n",
@@ -115,9 +121,6 @@ class GuidelineActivity : AppCompatActivity() {
             intent.putExtra("uri", uriImageCrop)
             intent.putExtra("resultCode", ReviewDetectActivity.GALLERY_RESULT)
             startActivity(intent)
-        } else {
-            val exception = result.error
-            Toast.makeText(this, "error: $exception", Toast.LENGTH_SHORT).show()
         }
     }
 

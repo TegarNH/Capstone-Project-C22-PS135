@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.ContentResolver
 import android.content.Context
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.Matrix
 import android.net.Uri
 import android.os.Environment
@@ -65,6 +66,45 @@ fun rotateBitmap(bitmap: Bitmap, isFrontCamera: Boolean = false): Bitmap {
             true
         )
     }
+}
+
+fun rotateFileImage(file: File, isFrontCamera: Boolean = false): File {
+    val bitmap = BitmapFactory.decodeFile(file.path)
+
+    if (isFrontCamera) {
+        val matrix = Matrix()
+        matrix.postRotate(-90f)
+        matrix.postScale(-1f, 1f, bitmap.width / 2f, bitmap.height / 2f)
+
+        val bitmapa = Bitmap.createBitmap(
+            bitmap,
+            0,
+            0,
+            bitmap.width,
+            bitmap.height,
+            matrix,
+            true
+        )
+
+        bitmapa.compress(Bitmap.CompressFormat.JPEG, 100, FileOutputStream(file))
+    } else {
+        val matrix = Matrix()
+        matrix.postRotate(90f)
+
+        val bitmapa = Bitmap.createBitmap(
+            bitmap,
+            0,
+            0,
+            bitmap.width,
+            bitmap.height,
+            matrix,
+            true
+        )
+
+        bitmapa.compress(Bitmap.CompressFormat.JPEG, 100, FileOutputStream(file))
+    }
+
+    return file
 }
 
 fun uriToFile(selectedImg: Uri, context: Context): File {
