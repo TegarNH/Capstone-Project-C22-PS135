@@ -80,8 +80,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     companion object {
-        private const val VALUE_SKIN_PROBLEMS = "test1"
-        private const val VALUE_SKIN_TYPE = "test2"
+        const val VALUE_SKIN_PROBLEMS = "test1"
+        const val VALUE_SKIN_TYPE = "test2"
         const val PREFS_CHOOSE_DETECTION = "choose_pref"
         const val KEY_SKIN = "key_skin"
     }

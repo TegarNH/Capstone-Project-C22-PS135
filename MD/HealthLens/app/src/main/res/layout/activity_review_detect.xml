@@ -24,46 +24,48 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:gravity="center_horizontal"
+        android:gravity="center"
         android:orientation="horizontal"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_try_again"
-            style="@style/Widget.Material3.Button.OutlinedButton"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:backgroundTint="@color/white"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
             android:text="@string/btn_try_again"
             android:textAllCaps="false"
             android:textColor="@color/blue_700"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="bold"
-            app:cornerRadius="15dp"
+            app:cornerRadius="12dp"
             app:rippleColor="@color/blue_200"
             app:strokeColor="@color/blue_700"
             app:strokeWidth="1dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_process"
-            style="@style/Widget.Material3.Button.OutlinedButton"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="16dp"
-            android:backgroundTint="@color/blue_700"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
             android:text="@string/process"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="bold"
-            app:cornerRadius="15dp"
-            app:rippleColor="@color/blue_200"
-            app:strokeColor="@color/blue_700" />
+            app:cornerRadius="12dp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

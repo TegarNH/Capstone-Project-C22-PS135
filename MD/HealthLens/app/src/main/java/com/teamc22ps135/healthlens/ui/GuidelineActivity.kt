@@ -52,11 +52,23 @@ class GuidelineActivity : AppCompatActivity() {
         binding = ActivityGuidelineBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        loadGuideline()
+
         binding.iconBack.setOnClickListener {
             super.onBackPressed()
             finish()
         }
 
+        binding.btnSelfie.setOnClickListener {
+            accessCamera()
+        }
+
+        binding.btnGallery.setOnClickListener {
+            startGalleryAndCrop()
+        }
+    }
+
+    private fun loadGuideline() {
         val items = arrayOf(
             getString(R.string.rules1),
             getString(R.string.rules2),
@@ -73,14 +85,6 @@ class GuidelineActivity : AppCompatActivity() {
             )
         }
         binding.rulesGuideline.text = builder
-
-        binding.btnSelfie.setOnClickListener {
-            accessCamera()
-        }
-
-        binding.btnGallery.setOnClickListener {
-            startGalleryAndCrop()
-        }
     }
 
     private fun accessCamera() {
@@ -98,6 +102,7 @@ class GuidelineActivity : AppCompatActivity() {
     private fun startCameraX() {
         val intent = Intent(this, DetectionActivity::class.java)
         startActivity(intent)
+        finish()
     }
 
     private fun startGalleryAndCrop() {
@@ -121,6 +126,7 @@ class GuidelineActivity : AppCompatActivity() {
             intent.putExtra("uri", uriImageCrop)
             intent.putExtra("resultCode", ReviewDetectActivity.GALLERY_RESULT)
             startActivity(intent)
+            finish()
         }
     }
 
