@@ -31,6 +31,6 @@ class ApiConfig {
             return retrofit.create(ApiService::class.java)
         }
 
-        const val ENDPOINT = "https://story-api.dicoding.dev/"
+        private const val ENDPOINT = "https://story-api.dicoding.dev/"
     }
 }

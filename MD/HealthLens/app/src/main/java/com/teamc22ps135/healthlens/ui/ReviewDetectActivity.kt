@@ -162,7 +162,10 @@ class ReviewDetectActivity : AppCompatActivity() {
 
     private fun isUploadSuccess(idDetection: String?) {
         val intent = Intent(this@ReviewDetectActivity, ResultActivity::class.java)
-        intent.putExtra("idDetection", idDetection)
+        intent.putExtra(
+            "idDetection",
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c2VyLU9Wbm82Sk5yYWhhMHBJOWIiLCJpYXQiOjE2NTM3NTQxNDB9.H49mZUKVwDkufsPOO3t9-RIoyI27kdAb63M3z_SsW80"
+        )
         startActivity(intent)
         finish()
     }

@@ -43,6 +43,7 @@
             android:name=".ui.GuidelineActivity"
             android:exported="false"
             android:screenOrientation="portrait"
+            android:launchMode="singleTop"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".ui.LandingActivity"
@@ -53,6 +54,7 @@
             android:name=".ui.MainActivity"
             android:exported="false"
             android:screenOrientation="portrait"
+            android:launchMode="singleTop"
             tools:ignore="LockedOrientationActivity" />
         <activity android:name="com.canhub.cropper.CropImageActivity" />
         <activity

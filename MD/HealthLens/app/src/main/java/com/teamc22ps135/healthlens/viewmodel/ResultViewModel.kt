@@ -4,47 +4,39 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.teamc22ps135.healthlens.data.remote.response.UploadResponse
+import com.teamc22ps135.healthlens.data.remote.response.ResultResponse
 import com.teamc22ps135.healthlens.data.remote.retrofit.ApiConfig
 import com.teamc22ps135.healthlens.helper.Event
-import okhttp3.MultipartBody
-import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ReviewDetectViewModel : ViewModel() {
-
+class ResultViewModel: ViewModel() {
     private val _isLoading = MutableLiveData<Event<Boolean>>()
     val isLoading: LiveData<Event<Boolean>> = _isLoading
 
     private val _isFailed = MutableLiveData<Event<Boolean>>()
     val isFailed: LiveData<Event<Boolean>> = _isFailed
 
-    private val _isUploadSuccess = MutableLiveData<Event<Boolean>>()
-    val isUploadSuccess: LiveData<Event<Boolean>> = _isUploadSuccess
-
-    private val _idDetection = MutableLiveData<String?>()
-    val idDetection: LiveData<String?> = _idDetection
+    private val _resultDetection = MutableLiveData<ResultResponse>()
+    val resultDetection: LiveData<ResultResponse> = _resultDetection
 
     fun uploadPhoto(
-        image: MultipartBody.Part,
-        typeDetection: RequestBody
+        idDetection: String?,
     ) {
         _isLoading.value = Event(true)
         val service =
-            ApiConfig.getApiService().uploadPicture(image, typeDetection)
-        service.enqueue(object : Callback<UploadResponse> {
+            ApiConfig.getApiService().getResult(id = "Bearer $idDetection")
+        service.enqueue(object : Callback<ResultResponse> {
             override fun onResponse(
-                call: Call<UploadResponse>,
-                response: Response<UploadResponse>
+                call: Call<ResultResponse>,
+                response: Response<ResultResponse>
             ) {
                 _isLoading.value = Event(false)
                 if (response.isSuccessful) {
                     val responseBody = response.body()
                     if (responseBody != null && !responseBody.error) {
-                        _isUploadSuccess.value = Event(true)
-                        _idDetection.value = responseBody.message
+                        _resultDetection.value = response.body()
                     }
                 } else {
                     _isFailed.value = Event(true)
@@ -52,7 +44,7 @@ class ReviewDetectViewModel : ViewModel() {
                 }
             }
 
-            override fun onFailure(call: Call<UploadResponse>, t: Throwable) {
+            override fun onFailure(call: Call<ResultResponse>, t: Throwable) {
                 _isLoading.value = Event(false)
                 _isFailed.value = Event(true)
                 Log.e(TAG, "onFailure: ${t.message.toString()}")
@@ -61,6 +53,6 @@ class ReviewDetectViewModel : ViewModel() {
     }
 
     companion object {
-        private const val TAG = "ReviewDetectViewModel"
+        private const val TAG = "ResultViewModel"
     }
 }

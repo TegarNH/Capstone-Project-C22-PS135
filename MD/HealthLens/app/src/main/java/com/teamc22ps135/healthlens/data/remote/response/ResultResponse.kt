@@ -7,12 +7,23 @@ data class ResultResponse(
     val error: Boolean,
     @field:SerializedName("message")
     val message: String,
-    @field:SerializedName("resultDetection")
-    val resultDetection: String,
-    @field:SerializedName("recommendationList")
-    val recommendationList: RecommendationList,
-    @field:SerializedName("productList")
-    val productList: ProductList
+    @field:SerializedName("listStory")
+    val listStory: List<Story>
+//    @field:SerializedName("resultDetection")
+//    val resultDetection: String,
+//    @field:SerializedName("recommendationList")
+//    val recommendationList: RecommendationList,
+//    @field:SerializedName("productList")
+//    val productList: ProductList
+)
+
+data class Story(
+    @field:SerializedName("id")
+    val id: String? = null,
+    @field:SerializedName("name")
+    val name: String? = null,
+    @field:SerializedName("description")
+    val description: String? = null,
 )
 
 data class RecommendationList(

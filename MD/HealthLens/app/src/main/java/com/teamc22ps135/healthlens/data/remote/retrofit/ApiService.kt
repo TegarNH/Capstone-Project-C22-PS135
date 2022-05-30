@@ -19,9 +19,11 @@ interface ApiService {
         @Part("description") typeDetection: RequestBody
     ): Call<UploadResponse>
 
-    @GET("/result")
+//    @GET("/result")
+    @GET("/v1/stories")
     fun getResult(
-        @Query("id") id: String,
-        @Query("typeDetection") typeDetection: String
+    @Header("Authorization") id: String,
+//        @Query("id") id: String,
+//        @Query("typeDetection") typeDetection: String
     ): Call<ResultResponse>
 }
