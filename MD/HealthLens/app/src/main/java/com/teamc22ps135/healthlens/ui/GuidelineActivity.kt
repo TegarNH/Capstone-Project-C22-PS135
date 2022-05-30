@@ -102,7 +102,6 @@ class GuidelineActivity : AppCompatActivity() {
     private fun startCameraX() {
         val intent = Intent(this, DetectionActivity::class.java)
         startActivity(intent)
-        finish()
     }
 
     private fun startGalleryAndCrop() {
@@ -126,7 +125,6 @@ class GuidelineActivity : AppCompatActivity() {
             intent.putExtra("uri", uriImageCrop)
             intent.putExtra("resultCode", ReviewDetectActivity.GALLERY_RESULT)
             startActivity(intent)
-            finish()
         }
     }
 
