@@ -42,18 +42,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onBackPressed() {
-        AlertDialog.Builder(this).apply {
-            setTitle(getString(R.string.title_confirmation))
-            setMessage(getString(R.string.message_want_logout))
-            setPositiveButton(getString(R.string.prompt_yes)) { _, _ ->
-                super.onBackPressed()
-                finish()
-            }
-            setNegativeButton(getString(R.string.prompt_cancel)) { dialog, _ -> dialog.cancel() }
-            create()
-            show()
-        }
+    private fun saveStateChooseDetection(state: String) {
+        val preferences = getSharedPreferences(PREFS_CHOOSE_DETECTION, Context.MODE_PRIVATE)
+        val editor = preferences.edit()
+        editor.putString(KEY_SKIN, state)
+        editor.apply()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -72,11 +65,17 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    private fun saveStateChooseDetection(state: String) {
-        val preferences = getSharedPreferences(PREFS_CHOOSE_DETECTION, Context.MODE_PRIVATE)
-        val editor = preferences.edit()
-        editor.putString(KEY_SKIN, state)
-        editor.apply()
+    override fun onBackPressed() {
+        AlertDialog.Builder(this).apply {
+            setTitle(getString(R.string.title_confirmation))
+            setMessage(getString(R.string.message_want_logout))
+            setPositiveButton(getString(R.string.prompt_yes)) { _, _ ->
+                finish()
+            }
+            setNegativeButton(getString(R.string.prompt_cancel)) { dialog, _ -> dialog.cancel() }
+            create()
+            show()
+        }
     }
 
     companion object {

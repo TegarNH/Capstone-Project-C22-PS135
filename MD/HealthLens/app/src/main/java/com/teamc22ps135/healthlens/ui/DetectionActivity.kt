@@ -20,7 +20,7 @@ import java.util.concurrent.Executors
 
 class DetectionActivity : AppCompatActivity() {
 
-    private lateinit var binding : ActivityDetectionBinding
+    private lateinit var binding: ActivityDetectionBinding
     private lateinit var cameraExecutor: ExecutorService
 
     private var cameraSelector: CameraSelector = CameraSelector.DEFAULT_FRONT_CAMERA
@@ -46,15 +46,20 @@ class DetectionActivity : AppCompatActivity() {
         }
 
         binding.iconBack.setOnClickListener {
-            super.onBackPressed()
-            finish()
+            onBackPressed()
         }
 
         binding.switchCamera.setOnClickListener {
-            cameraSelector = if (cameraSelector == CameraSelector.DEFAULT_BACK_CAMERA) CameraSelector.DEFAULT_FRONT_CAMERA
-            else CameraSelector.DEFAULT_BACK_CAMERA
+            cameraSelector =
+                if (cameraSelector == CameraSelector.DEFAULT_BACK_CAMERA) CameraSelector.DEFAULT_FRONT_CAMERA
+                else CameraSelector.DEFAULT_BACK_CAMERA
             startCamera()
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
     }
 
     public override fun onResume() {
@@ -102,7 +107,7 @@ class DetectionActivity : AppCompatActivity() {
                 override fun onError(exc: ImageCaptureException) {
                     Toast.makeText(
                         this@DetectionActivity,
-                        "Gagal mengambil gambar.",
+                        getString(R.string.failed_take_picture),
                         Toast.LENGTH_SHORT
                     ).show()
                 }
@@ -135,7 +140,7 @@ class DetectionActivity : AppCompatActivity() {
                 }
 
             imageCapture = ImageCapture.Builder().apply {
-                setTargetResolution(Size(1000,1000))
+                setTargetResolution(Size(1000, 1000))
             }.build()
 
             try {
@@ -149,7 +154,7 @@ class DetectionActivity : AppCompatActivity() {
             } catch (exc: Exception) {
                 Toast.makeText(
                     this@DetectionActivity,
-                    "Gagal memunculkan kamera.",
+                    getString(R.string.failed_bring_up_camera),
                     Toast.LENGTH_SHORT
                 ).show()
             }
@@ -168,5 +173,4 @@ class DetectionActivity : AppCompatActivity() {
         }
         supportActionBar?.hide()
     }
-
 }

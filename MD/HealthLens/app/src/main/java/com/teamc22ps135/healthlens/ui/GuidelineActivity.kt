@@ -14,7 +14,6 @@ import com.canhub.cropper.*
 import com.teamc22ps135.healthlens.R
 import com.teamc22ps135.healthlens.databinding.ActivityGuidelineBinding
 
-
 class GuidelineActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityGuidelineBinding
@@ -29,7 +28,7 @@ class GuidelineActivity : AppCompatActivity() {
             if (!allPermissionsGranted()) {
                 Toast.makeText(
                     this,
-                    "Tidak mendapatkan permission.",
+                    getString(R.string.not_getting_permission),
                     Toast.LENGTH_SHORT
                 ).show()
                 finish()
@@ -55,8 +54,7 @@ class GuidelineActivity : AppCompatActivity() {
         loadGuideline()
 
         binding.iconBack.setOnClickListener {
-            super.onBackPressed()
-            finish()
+            onBackPressed()
         }
 
         binding.btnSelfie.setOnClickListener {
@@ -127,6 +125,12 @@ class GuidelineActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
+    }
+
 
     companion object {
         private val REQUIRED_PERMISSIONS = arrayOf(android.Manifest.permission.CAMERA)

@@ -79,7 +79,7 @@
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginTop="8dp"
                                 android:textColor="@color/blue_700"
-                                android:textSize="14sp"
+                                android:textSize="16sp"
                                 tools:text="Oily Skin" />
                         </LinearLayout>
                     </com.google.android.material.card.MaterialCardView>
@@ -97,7 +97,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
-                            android:padding="16dp">
+                            android:paddingStart="16dp"
+                            android:paddingTop="16dp"
+                            android:paddingEnd="16dp">
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -108,12 +110,14 @@
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
 
-                            <androidx.recyclerview.widget.RecyclerView
-                                android:id="@+id/rv_recommendation"
+                            <TextView
+                                android:id="@+id/point_recommendation"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="8dp"
-                                tools:listitem="@layout/item_recommendation" />
+                                android:textColor="@color/blue_700"
+                                android:textSize="15sp"
+                                tools:text="asdinasjdna asndasndalansdmas" />
                         </LinearLayout>
                     </com.google.android.material.card.MaterialCardView>
 
@@ -131,12 +135,16 @@
                         android:textStyle="bold" />
 
                     <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_product_recommended"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="24dp"
-                        android:layout_marginEnd="24dp"
-                        android:layout_marginBottom="16dp"
-                        tools:itemCount="10" />
+                        android:clipToPadding="false"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="24dp"
+                        tools:itemCount="10"
+                        tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:listitem="@layout/item_product_recommendation"
+                        tools:orientation="horizontal" />
                 </LinearLayout>
             </ScrollView>
         </LinearLayout>
@@ -197,7 +205,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="16dp"
-        app:cardBackgroundColor="@color/orange_200"
+        app:cardBackgroundColor="@color/orange_100"
         app:cardCornerRadius="10dp"
         app:cardElevation="8dp"
         app:strokeColor="@color/orange_700"

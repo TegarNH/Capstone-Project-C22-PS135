@@ -39,25 +39,31 @@ class ReviewDetectActivity : AppCompatActivity() {
 
         reviewDetectViewModel = ViewModelProvider(this)[ReviewDetectViewModel::class.java]
 
+        setImagePreview()
+
+        binding.btnTryAgain.setOnClickListener {
+            onBackPressed()
+        }
+
+        binding.btnProcess.setOnClickListener { showDialogConfirmationUpload() }
+    }
+
+    private fun setImagePreview() {
         val resultCode = intent.getIntExtra("resultCode", 0)
         if (resultCode == GALLERY_RESULT) {
             setImageFromGallery()
         } else if (resultCode == CAMERA_X_RESULT) {
             setImageFromCamera()
         }
-
-        binding.btnTryAgain.setOnClickListener {
-            super.onBackPressed()
-            finish()
-        }
-
-        binding.btnProcess.setOnClickListener { uploadPhoto() }
     }
 
-    private fun getStateChooseDetection(): String? {
-        val preferences =
-            getSharedPreferences(MainActivity.PREFS_CHOOSE_DETECTION, Context.MODE_PRIVATE)
-        return preferences.getString(MainActivity.KEY_SKIN, null)
+    private fun setImageFromGallery() {
+        val selectedImg = intent.getParcelableExtra<Uri>("uri") as Uri
+
+        val myFile = uriToFile(selectedImg, this)
+        filePhoto = myFile
+
+        binding.ivImage.setImageURI(selectedImg)
     }
 
     private fun setImageFromCamera() {
@@ -74,58 +80,63 @@ class ReviewDetectActivity : AppCompatActivity() {
         binding.ivImage.setImageBitmap(result)
     }
 
-    private fun setImageFromGallery() {
-        val selectedImg = intent.getParcelableExtra<Uri>("uri") as Uri
-
-        val myFile = uriToFile(selectedImg, this)
-        filePhoto = myFile
-
-        binding.ivImage.setImageURI(selectedImg)
-    }
-
-    private fun uploadPhoto() {
+    private fun showDialogConfirmationUpload() {
         AlertDialog.Builder(this).apply {
             setTitle(getString(R.string.title_confirmation))
-            setMessage("Are you sure you want to upload this photo?")
+            setMessage(getString(R.string.message_confirmation_upload))
             setPositiveButton(getString(R.string.prompt_yes)) { _, _ ->
-                val file = filePhoto as File
-                val typeDetection = getStateChooseDetection() as String
-
-                val partTypeDetection = typeDetection.toRequestBody("text/plain".toMediaType())
-                val requestImageFile = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
-                val imageMultipart: MultipartBody.Part = MultipartBody.Part.createFormData(
-                    "photo",
-                    file.name,
-                    requestImageFile
-                )
-
-                reviewDetectViewModel.uploadPhoto(imageMultipart, partTypeDetection)
-
-                reviewDetectViewModel.isLoading.observe(this@ReviewDetectActivity) {
-                    it.getContentIfNotHandled()?.let { state ->
-                        isLoading(state)
-                    }
-                }
-
-                reviewDetectViewModel.isFailed.observe(this@ReviewDetectActivity) {
-                    it.getContentIfNotHandled()?.let {
-                        isFailed()
-                    }
-                }
-
-                reviewDetectViewModel.isUploadSuccess.observe(this@ReviewDetectActivity) {
-                    it.getContentIfNotHandled()?.let {
-                        reviewDetectViewModel.idDetection.observe(this@ReviewDetectActivity) { id ->
-                            isUploadSuccess(idDetection = id)
-                        }
-
-                    }
-                }
+                uploadPhoto()
             }
             setNegativeButton(getString(R.string.prompt_cancel)) { dialog, _ -> dialog.cancel() }
             create()
             show()
         }
+    }
+
+    private fun getStateChooseDetection(): String? {
+        val preferences =
+            getSharedPreferences(MainActivity.PREFS_CHOOSE_DETECTION, Context.MODE_PRIVATE)
+        return preferences.getString(MainActivity.KEY_SKIN, null)
+    }
+
+    private fun uploadPhoto() {
+        val file = filePhoto as File
+        val typeDetection = getStateChooseDetection() as String
+
+        val partTypeDetection = typeDetection.toRequestBody("text/plain".toMediaType())
+        val requestImageFile = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
+        val imageMultipart: MultipartBody.Part = MultipartBody.Part.createFormData(
+            "photo",
+            file.name,
+            requestImageFile
+        )
+
+        reviewDetectViewModel.uploadPhoto(imageMultipart, partTypeDetection)
+
+        reviewDetectViewModel.isLoading.observe(this@ReviewDetectActivity) {
+            it.getContentIfNotHandled()?.let { state ->
+                isLoading(state)
+            }
+        }
+
+        reviewDetectViewModel.isFailed.observe(this@ReviewDetectActivity) {
+            it.getContentIfNotHandled()?.let {
+                isFailed()
+            }
+        }
+
+        reviewDetectViewModel.isUploadSuccess.observe(this@ReviewDetectActivity) {
+            it.getContentIfNotHandled()?.let {
+                reviewDetectViewModel.idDetection.observe(this@ReviewDetectActivity) { id ->
+                    isUploadSuccess(idDetection = id)
+                }
+            }
+        }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
     }
 
     private fun isLoading(loading: Boolean) {
@@ -135,7 +146,7 @@ class ReviewDetectActivity : AppCompatActivity() {
                 setView(
                     View.inflate(
                         this@ReviewDetectActivity,
-                        R.layout.layout_dialog_progress,
+                        R.layout.layout_dialog_progress_uploading,
                         null
                     )
                 )
@@ -150,10 +161,10 @@ class ReviewDetectActivity : AppCompatActivity() {
 
     private fun isFailed() {
         AlertDialog.Builder(this).apply {
-            setTitle("Error")
-            setMessage("Oppss")
-            setPositiveButton("OK") { dialog, _ ->
-                dialog.dismiss()
+            setTitle(getString(R.string.title_error))
+            setMessage(getString(R.string.message_error))
+            setPositiveButton(getString(R.string.prompt_try_again)) { _, _ ->
+                uploadPhoto()
             }
             create()
             show()
@@ -166,6 +177,10 @@ class ReviewDetectActivity : AppCompatActivity() {
             "idDetection",
             "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c2VyLU9Wbm82Sk5yYWhhMHBJOWIiLCJpYXQiOjE2NTM3NTQxNDB9.H49mZUKVwDkufsPOO3t9-RIoyI27kdAb63M3z_SsW80"
         )
+//        intent.putExtra(
+//            "idDetection",
+//            idDetection
+//        )
         startActivity(intent)
         finish()
     }

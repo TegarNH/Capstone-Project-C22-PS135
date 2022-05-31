@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginBottom="16dp"
+    app:cardBackgroundColor="@color/blue_100"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="12dp"
+    app:strokeColor="@color/blue_500"
+    app:strokeWidth="1dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="12dp">
+
+        <ImageView
+            android:id="@+id/image_product"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:contentDescription="@string/content_desc_product_photo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_photo_24" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@id/image_product"
+            app:layout_constraintStart_toEndOf="@id/image_product"
+            app:layout_constraintTop_toTopOf="@id/image_product">
+
+            <TextView
+                android:id="@+id/name_product"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="@color/blue_700"
+                android:textSize="15sp"
+                tools:text="andajsa sd as da sd sdfsd asdasdas " />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_buy_here"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="130dp"
+                android:layout_height="42dp"
+                android:layout_marginTop="4dp"
+                android:backgroundTint="@color/blue_700"
+                android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_right_24"
+                android:paddingStart="32dp"
+                android:paddingEnd="8dp"
+                android:text="@string/btn_buy_here"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:cornerRadius="16dp"
+                app:rippleColor="@color/blue_200"
+                app:strokeColor="@color/blue_700" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -1,14 +1,20 @@
 <resources>
     <string name="app_name">HealthLens</string>
+    <string name="title_actionbar_result">Detection Result</string>
     <string name="content_desc_logo_motto">HealthLens, mind your skin health</string>
     <string name="content_desc_illustration_landing">Face scan illustration</string>
-    <string name="content_text_title_landing">You have skin concern ? Don’t worries.....</string>
-    <string name="content_text_desc_landing">HealthLens can be developed your skin with dermatologis and customized for you. Detect your face, discover solution and best recomendation products skincare.</string>
+    <string name="content_text_title_landing">You have skin concern? Don’t worries.....</string>
+    <string name="content_text_desc_landing">HealthLens can be developed your skin with dermatologist and customized for you. Detect your face, discover solution and best recommendation products skincare.</string>
     <string name="text_btn_get_started">Get Started</string>
     <string name="prompt_yes">Yes</string>
+    <string name="prompt_ok">OK</string>
+    <string name="prompt_try_again">Try again</string>
     <string name="prompt_cancel">Cancel</string>
     <string name="title_confirmation">Confirmation</string>
+    <string name="title_error">Error</string>
+    <string name="message_confirmation_upload">Are you sure you want to upload this photo?</string>
     <string name="message_want_logout">Are you sure you want to exit the app?</string>
+    <string name="message_error">There seems to be a problem. Please try again …</string>
     <string name="text_menu_language">Language</string>
     <string name="tv_choose_detection">Choose Detection</string>
     <string name="text_content_desc_skin_problems">Picture Skin Problems</string>
@@ -40,7 +46,13 @@
     <string name="list_recomendation">Wash your face up to 2 time a day Don’t forget to use mosturizer</string>
     <string name="title_produk">Garnier Facial Wash</string>
     <string name="text_dialog_upload_photo">Uploading Photo …</string>
+    <string name="text_dialog_detect_photo">Detecting photo, please wait …</string>
     <string name="tv_product_recommendation">Product Recommendation</string>
     <string name="btn_back_home">Back to Home</string>
     <string name="btn_detect_again">Detect Again</string>
+    <string name="content_desc_product_photo">Product Photo</string>
+    <string name="btn_buy_here">Buy here</string>
+    <string name="failed_take_picture">Failed to take picture</string>
+    <string name="failed_bring_up_camera">Failed to bring up camera</string>
+    <string name="not_getting_permission">Not getting permission</string>
 </resources>

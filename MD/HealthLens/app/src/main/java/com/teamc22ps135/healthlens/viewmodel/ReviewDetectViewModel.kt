@@ -45,6 +45,7 @@ class ReviewDetectViewModel : ViewModel() {
                     if (responseBody != null && !responseBody.error) {
                         _isUploadSuccess.value = Event(true)
                         _idDetection.value = responseBody.message
+//                        _idDetection.value = responseBody.idDetection
                     }
                 } else {
                     _isFailed.value = Event(true)

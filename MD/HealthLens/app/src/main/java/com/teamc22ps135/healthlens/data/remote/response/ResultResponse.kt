@@ -24,6 +24,8 @@ data class Story(
     val name: String? = null,
     @field:SerializedName("description")
     val description: String? = null,
+    @field:SerializedName("photoUrl")
+    val photoUrl: String? = null
 )
 
 data class RecommendationList(
