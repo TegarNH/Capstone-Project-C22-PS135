@@ -15,13 +15,8 @@ def ml(kind_model, picture_path):
     import model_reader
 
     return model_reader.model_reader(kind_model, picture_path),200
-
-@app.route('/create/', methods=('GET', 'POST'))
-def create(kind_model, picture_path):
-    import model_reader
-
-    return render_template('create.html'),200
-
+@app.route('/form-data', methods=['GET', 'POST'])
+    return render_template("submit.html")
 
 if __name__ == '__main__':
     app.run(debug=True)   
