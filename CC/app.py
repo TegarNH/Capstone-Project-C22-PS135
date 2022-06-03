@@ -1,19 +1,26 @@
-from flask import Flask
+from flask import Flask, jsonify, request
 app = Flask(__name__)
 
+tipepredict = [{'kindmodel' : 'type'},{'kindmodel' : 'deases'}]
 
-@app.route('/hello/', methods=['GET', 'POST'])
-def welcome():
-    return "Hello World!"
+@app.route('/', methods=['GET'])
+def hello():
+  return jsonify({'message' : 'Hello World!'})
 
+@app.route('/lang', methods=['GET'])
+def returnALL():
+  return jsonify({'tipepredict' : kindmodel})
 
-@app.route('/ml/<string:kind_model>/<string:picture_path>', methods=['GET', 'POST'])
-def ml(kind_model, picture_path):
-    import model_reader
+@app.route('/lang/<string:kindmodel>', methods=['GET'])
+def returnALL():
+  langs = [tipepredicts for tipepredicts in tipepredict if tipepredict['kindmodel' == kindmodel]]
+  return jsonify({'tipepredict' : langs[0]})
 
-    return model_reader.model_reader(kind_model, picture_path), 200
-
+@app.route('/lang/', methods=['POST'])
+def addOne():
+  tipepredicts = {'kindmodel' : request.json['kindmodel']}
+  tipepredict.append(tipepredicts)
+  return jsonify({'tipepredict' : tipepredicts})
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
-root@healthlens-server: / home/healthlens_bucket1/upload
+  app.run()
