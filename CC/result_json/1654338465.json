@@ -1,0 +1,46 @@
+{
+    "error": "false",
+    "message": "success",
+    "id": 1654338465,
+    "resultDetection": "Puff Eyes",
+    "rekomendationList": [
+        "Kompres mata dengan es batu",
+        "Menghindari konsumsi alkohol",
+        "Mengompres dengan kantong teh celup",
+        "Mencukupi kebutuhan cairan dalam tubuh",
+        "Gunakan krim mata secara rutin",
+        "Tidur yang cukup (minimal 4 - 5 jam)"
+    ],
+    "productList": [
+        {
+            "photo": "D:\\api/https://drive.google.com/file/d/1fTeh5sRlfNd50qf-O_5kIBx4eHed9e9e/view?usp=sharing",
+            "name": "Bioderma Sensibio Eye Contour Gel",
+            "linkProduct": "https://www.tokopedia.com/watsons/bioderma-sensibio-eye-contour-gel-15ml?extParam=ivf%3Dfalse%26src%3Dsearch"
+        },
+        {
+            "photo": "D:\\api/https://drive.google.com/file/d/1sjOgrbA1RYEU8_7PnoMKtBun7mIMT94W/view?usp=sharing",
+            "name": "Whitelab Eye Cream",
+            "linkProduct": "https://www.tokopedia.com/bueno/whitelab-skincare-perawatan-wajah-tubuh-white-lab-niacinamide-collagen-facial-wash?src=topads"
+        },
+        {
+            "photo": "D:\\api/https://drive.google.com/file/d/1fXL3do1Tr88AHwsw2ra0AFinijFu5K_U/view?usp=sharing",
+            "name": "REAL WHITE Intensive Whitening Lifting Repair Eye Cream",
+            "linkProduct": "https://shopee.co.id/REAL-WHITE-Intensive-Whitening-Lifting-Repair-Eye-Cream-BPOM-HALAL-Skincare-Krim-Kantong-Lingkar-Hitam-Mata-Panda-Eyebag-Firming-Anti-Aging-Wrinkle-Kerutan-Keriput-Garis-Halus-Pemutih-Pencerah-Memutihkan-Mencerahkan-Kulit-Apotek-Farmasi-Klinik-Dokter-i.349337394.3880485717"
+        },
+        {
+            "photo": "D:\\api/https://drive.google.com/file/d/1QNLYYfFYW9pbWbGlMCzIFlUpcKZvaF3z/view?usp=sharing",
+            "name": "EYE TREATMENT SERUM MS GLOW",
+            "linkProduct": "https://shopee.co.id/EYE-TREATMENT-SERUM-MS-GLOW-i.172471447.5115343536"
+        },
+        {
+            "photo": "D:\\api/https://drive.google.com/file/d/1m_Gruey9ke7_3GihSJ4_mxWVozMuE9eI/view?usp=sharing",
+            "name": "Wardah Renew You Anti Aging Eye Cream",
+            "linkProduct": "https://www.tokopedia.com/wardah-official/wardah-renew-you-anti-aging-eye-cream-10-ml-krim-mata"
+        },
+        {
+            "photo": "D:\\api/https://drive.google.com/file/d/1YOQlHbrV8sRLFE0MVSGvHZ0fQ3jmPXUB/view?usp=sharing",
+            "name": "Garnier Eye Serum Mask",
+            "linkProduct": "https://shopee.co.id/Garnier-Eye-Serum-Mask-i.140789817.6753804367"
+        }
+    ]
+}
