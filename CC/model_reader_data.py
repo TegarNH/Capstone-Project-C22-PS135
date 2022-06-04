@@ -108,9 +108,9 @@ def model_reader_data(kind_model, picture_path):
         #print(product_list[value])
 
 
-    id_predict = calendar.timegm(time.gmtime()) #membuat id berdasarkan timestamp
+    id_predict = str(calendar.timegm(time.gmtime())) #membuat id berdasarkan timestamp
     print(id_predict)
-    dictionary = {"error" : "false", "message": "success", "id":id_predict, "resultDetection" : skin_value, "rekomendationList" : rekomendation_list, "productList" : product_list }
+    dictionary = {"error" : False, "message": "success", "id":id_predict, "resultDetection" : skin_value, "rekomendationList" : rekomendation_list, "productList" : product_list }
     json_object = json.dumps(dictionary, indent=4) #memasukkan dictionary ke bentuk json object
     #print("result_json/"+str(id_predict)+".json")
     json_file = open("result_json/"+str(id_predict)+".json", "w") #membuat file .json dan menentukan nama filenya
