@@ -14,7 +14,7 @@ model_path = ""
 if kind_model == "type":
     model_path = "/content/drive/MyDrive/Model-ML/Model Final/skin-type-model-80.h5"
 elif kind_model == "disease":
-    model_path = "/content/drive/MyDrive/Model-ML/Model Final/Model/skin-disease-model-75.h5"    
+    model_path = "/content/drive/MyDrive/Model-ML/Model Final/skin-disease-model-75.h5"    
 picture_path = sys.argv[2]
 
 print(model_path, picture_path)
@@ -65,32 +65,43 @@ data_produk = pd.read_csv(path_data_produk)
 if skin_value == "Dry":
     hasil_rekomendasi = data_rekomendasi.query("Rekomendasi  == 11")
     hasil_produk = data_produk.query("Rekomendasi == 11")
-else if skin_value == "Normal":
+elif skin_value == "Normal":
     hasil_rekomendasi = data_rekomendasi.query("Rekomendasi  == 12")
     hasil_produk = data_produk.query("Rekomendasi == 12")
-else if skin_value == "Oily":
+elif skin_value == "Oily":
     hasil_rekomendasi = data_rekomendasi.query("Rekomendasi  == 13")
     hasil_produk = data_produk.query("Rekomendasi == 13")
-else if skin_value == "Sensitive":
+elif skin_value == "Sensitive":
     hasil_rekomendasi = data_rekomendasi.query("Rekomendasi  == 14")
     hasil_produk = data_produk.query("Rekomendasi == 14")
-else if skin_value == "Acne":
+elif skin_value == "Acne":
     hasil_rekomendasi = data_rekomendasi.query("Rekomendasi  == 21")
     hasil_produk = data_produk.query("Rekomendasi == 21")
-else if skin_value == "Black Spots":
+elif skin_value == "Black Spots":
     hasil_rekomendasi = data_rekomendasi.query("Rekomendasi  == 22")
     hasil_produk = data_produk.query("Rekomendasi == 22")
-else if skin_value == "Puff Eyes":
+elif skin_value == "Puff Eyes":
     hasil_rekomendasi = data_rekomendasi.query("Rekomendasi  == 23")
     hasil_produk = data_produk.query("Rekomendasi == 23")
-else if skin_value == "Wrinkles":
+elif skin_value == "Wrinkles":
     hasil_rekomendasi = data_rekomendasi.query("Rekomendasi  == 24")
     hasil_produk = data_produk.query("Rekomendasi == 24")    
-print(hasil_rekomendasi.iloc[0][1])
-print(hasil_produk.iloc[0][1])
-# id_predict = calendar.timegm(time.gmtime())
-# dictionary = {"error" : "false", "message": "success", "id":id_predict, "resultDetection" : skin_value}
-# json_object = json.dumps(dictionary, indent=4)
-# json_file = open(str(id_predict)+".json", "w")
-# json_file.write(json_object)
-# json_file.close()
+#print(hasil_rekomendasi.iloc[0][1])
+#print(hasil_produk.iloc[0][1])
+#print(len(hasil_rekomendasi))
+rekomendation_list = []
+product_list = []
+for value in range(len(hasil_rekomendasi)):
+    rekomendation_list.append(hasil_rekomendasi.iloc[value][1])
+    #print(rekomendation_list[value])
+for value in range(len(hasil_produk)):
+    product_list.append({"photo" : os.getcwd()+"/"+hasil_produk.iloc[value][2], "name" : hasil_produk.iloc[value][1], "linkProduct" : hasil_produk.iloc[value][3]})
+    #print(product_list[value])
+
+id_predict = calendar.timegm(time.gmtime())
+dictionary = {"error" : "false", "message": "success", "id":id_predict, "resultDetection" : skin_value, "rekomendationList" : rekomendation_list, "productList" : product_list }
+json_object = json.dumps(dictionary, indent=4)
+print(json_object)
+json_file = open(str(id_predict)+".json", "w")
+json_file.write(json_object)
+json_file.close()
