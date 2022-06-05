@@ -1,18 +1,16 @@
 package com.teamc22ps135.healthlens.ui
 
 import android.content.Intent
-import android.content.Intent.ACTION_GET_CONTENT
 import android.content.pm.PackageManager
-import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableStringBuilder
 import android.text.style.BulletSpan
 import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.canhub.cropper.*
 import com.teamc22ps135.healthlens.R
 import com.teamc22ps135.healthlens.databinding.ActivityGuidelineBinding
 
@@ -30,7 +28,7 @@ class GuidelineActivity : AppCompatActivity() {
             if (!allPermissionsGranted()) {
                 Toast.makeText(
                     this,
-                    "Tidak mendapatkan permission.",
+                    getString(R.string.not_getting_permission),
                     Toast.LENGTH_SHORT
                 ).show()
                 finish()
@@ -53,13 +51,30 @@ class GuidelineActivity : AppCompatActivity() {
         binding = ActivityGuidelineBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        loadGuideline()
+
         binding.iconBack.setOnClickListener {
-            super.onBackPressed()
-            finish()
+            onBackPressed()
         }
 
-        val items = arrayOf(getString(R.string.rules1), getString(R.string.rules2), getString(R.string.rules3), getString(R.string.rules4), getString(R.string.rules5))
-        val builder =  SpannableStringBuilder()
+        binding.btnSelfie.setOnClickListener {
+            accessCamera()
+        }
+
+        binding.btnGallery.setOnClickListener {
+            startGalleryAndCrop()
+        }
+    }
+
+    private fun loadGuideline() {
+        val items = arrayOf(
+            getString(R.string.rules1),
+            getString(R.string.rules2),
+            getString(R.string.rules3),
+            getString(R.string.rules4),
+            getString(R.string.rules5)
+        )
+        val builder = SpannableStringBuilder()
         items.forEach { item ->
             builder.append(
                 " $item\n\n",
@@ -68,14 +83,6 @@ class GuidelineActivity : AppCompatActivity() {
             )
         }
         binding.rulesGuideline.text = builder
-
-        binding.btnSelfie.setOnClickListener {
-            accessCamera()
-        }
-
-        binding.btnGallery.setOnClickListener {
-            startGallery()
-        }
     }
 
     private fun accessCamera() {
@@ -95,29 +102,43 @@ class GuidelineActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun startGallery() {
-        val intent = Intent()
-        intent.action = ACTION_GET_CONTENT
-        intent.type = "image/*"
-        val chooser = Intent.createChooser(intent, "Choose a Picture")
-        launcherIntentGallery.launch(chooser)
+    private fun startGalleryAndCrop() {
+        launcherCropImage.launch(
+            options {
+                setImageSource(
+                    includeCamera = false, includeGallery = true
+                )
+                setAspectRatio(aspectRatioX = 1, aspectRatioY = 1)
+                setAllowRotation(allowRotation = false)
+                setAllowFlipping(allowFlipping = false)
+            }
+        )
     }
 
-    private val launcherIntentGallery = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ) { result ->
-        if (result.resultCode == RESULT_OK) {
-            val selectedImg: Uri = result.data?.data as Uri
+    private val launcherCropImage = registerForActivityResult(CropImageContract()) { result ->
+        if (result.isSuccessful) {
+            val uriImageCrop = result.uriContent
 
             val intent = Intent(this@GuidelineActivity, ReviewDetectActivity::class.java)
-            intent.putExtra("uri", selectedImg)
-            intent.putExtra("resultCode", ReviewDetectActivity.GALLERY_RESULT)
+            intent.putExtra(KEY_URI_IMAGE, uriImageCrop)
+            intent.putExtra(
+                ReviewDetectActivity.KEY_RESULT_CODE,
+                ReviewDetectActivity.GALLERY_RESULT
+            )
             startActivity(intent)
         }
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
+    }
+
+
     companion object {
         private val REQUIRED_PERMISSIONS = arrayOf(android.Manifest.permission.CAMERA)
         private const val REQUEST_CODE_PERMISSIONS = 10
+
+        const val KEY_URI_IMAGE = "uri"
     }
 }

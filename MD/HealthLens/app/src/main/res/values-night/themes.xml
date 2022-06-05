@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Theme.HealthLens" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <!-- Primary brand color. -->
@@ -6,11 +6,36 @@
         <item name="colorPrimaryVariant">@color/blue_500</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorSecondary">@color/pink_500</item>
+        <item name="colorSecondaryVariant">@color/pink_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimary</item>
         <!-- Customize your theme here. -->
+    </style>
+    <style name="RippleColorTheme" parent="Widget.AppCompat.ActionButton">
+        <item name="colorControlHighlight">@color/blue_100</item>
+    </style>
+
+    <style name="Header">
+        <item name="android:textColor">@color/blue_700</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/lato</item>
+    </style>
+
+    <style name="Button">
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/lato</item>
+    </style>
+
+    <style name="Text">
+        <item name="android:textColor">@color/blue_700</item>
+        <item name="android:fontFamily">@font/raleway</item>
+    </style>
+
+    <style name="Button2" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/lato</item>
     </style>
 </resources>
