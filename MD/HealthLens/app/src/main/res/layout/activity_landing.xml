@@ -46,6 +46,7 @@
 
             <TextView
                 android:id="@+id/desc_landing"
+                style="@style/Text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -55,7 +56,6 @@
                 android:layout_marginBottom="60dp"
                 android:text="@string/content_text_desc_landing"
                 android:textAlignment="center"
-                style="@style/Text"
                 android:textSize="16sp" />
         </LinearLayout>
     </ScrollView>
@@ -74,7 +74,7 @@
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="17sp"
-        android:textStyle="bold"
+        style="@style/Button"
         app:cornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

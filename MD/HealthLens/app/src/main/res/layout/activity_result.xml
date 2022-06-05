@@ -177,7 +177,7 @@
                     android:textAllCaps="false"
                     android:textColor="@color/blue_700"
                     android:textSize="14sp"
-                    android:textStyle="bold"
+                    style="@style/Button"
                     app:cornerRadius="12dp"
                     app:rippleColor="@color/blue_200"
                     app:strokeColor="@color/blue_700"
@@ -204,7 +204,7 @@
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textSize="14sp"
-                    android:textStyle="bold"
+                    style="@style/Button"
                     app:cornerRadius="12dp" />
             </LinearLayout>
         </LinearLayout>
