@@ -20,11 +20,11 @@
     <style name="Header">
         <item name="android:textColor">@color/blue_700</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:fontFamily">@font/Lato</item>
+        <item name="android:fontFamily">@font/lato</item>
     </style>
 
     <style name="Text">
         <item name="android:textColor">@color/blue_700</item>
-        <item name="android:fontFamily">@font/Raleway</item>
+        <item name="android:fontFamily">@font/raleway</item>
     </style>
 </resources>
