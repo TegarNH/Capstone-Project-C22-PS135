@@ -43,9 +43,8 @@
                         android:layout_marginEnd="24dp"
                         android:layout_marginBottom="24dp"
                         android:text="@string/tv_summary"
-                        android:textColor="@color/blue_700"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
+                        style="@style/Header"
+                        android:textSize="20sp" />
 
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
@@ -68,9 +67,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
                                 android:text="@string/title_result"
-                                android:textColor="@color/blue_700"
-                                android:textSize="18sp"
-                                android:textStyle="bold" />
+                                style="@style/Header"
+                                android:textSize="18sp" />
 
                             <TextView
                                 android:id="@+id/result_skin"
@@ -78,8 +76,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginTop="8dp"
-                                android:textColor="@color/blue_700"
                                 android:textSize="16sp"
+                                style="@style/Text"
                                 tools:text="Oily Skin" />
                         </LinearLayout>
                     </com.google.android.material.card.MaterialCardView>
@@ -106,17 +104,16 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
                                 android:text="@string/title_recomendation"
-                                android:textColor="@color/blue_700"
-                                android:textSize="18sp"
-                                android:textStyle="bold" />
+                                style="@style/Header"
+                                android:textSize="18sp" />
 
                             <TextView
                                 android:id="@+id/point_recommendation"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="8dp"
-                                android:textColor="@color/blue_700"
                                 android:textSize="15sp"
+                                style="@style/Text"
                                 tools:text="asdinasjdna asndasndalansdmas" />
                         </LinearLayout>
                     </com.google.android.material.card.MaterialCardView>
@@ -130,9 +127,8 @@
                         android:layout_marginEnd="24dp"
                         android:layout_marginBottom="24dp"
                         android:text="@string/tv_product_recommendation"
-                        android:textColor="@color/blue_700"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
+                        style="@style/Header"
+                        android:textSize="20sp" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rv_product_recommended"

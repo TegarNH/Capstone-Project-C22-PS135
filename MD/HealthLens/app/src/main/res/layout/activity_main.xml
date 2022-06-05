@@ -37,9 +37,8 @@
                     android:layout_marginEnd="24dp"
                     android:layout_marginBottom="24dp"
                     android:text="@string/tv_choose_detection"
-                    android:textColor="@color/blue_700"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    style="@style/Header"
+                    android:textSize="20sp" />
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/skin_problems_detection"
@@ -81,9 +80,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/title_skin_problems"
-                                android:textColor="@color/blue_700"
+                                style="@style/Header"
                                 android:textSize="18sp"
-                                android:textStyle="bold"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
@@ -105,8 +103,8 @@
                             android:layout_marginTop="8dp"
                             android:layout_marginEnd="16dp"
                             android:layout_marginBottom="16dp"
+                            style="@style/Text"
                             android:text="@string/detail_skin_problems"
-                            android:textColor="@color/blue_700"
                             android:textSize="14sp" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
@@ -151,9 +149,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/title_skin_type"
-                                android:textColor="@color/blue_700"
+                                style="@style/Header"
                                 android:textSize="18sp"
-                                android:textStyle="bold"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
@@ -175,8 +172,8 @@
                             android:layout_marginTop="8dp"
                             android:layout_marginEnd="16dp"
                             android:layout_marginBottom="16dp"
+                            style="@style/Text"
                             android:text="@string/detail_skin_type"
-                            android:textColor="@color/blue_700"
                             android:textSize="14sp" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
@@ -207,10 +204,9 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="16dp"
                 android:text="@string/title_information"
+                style="@style/Header"
                 android:textAlignment="center"
-                android:textColor="@color/blue_700"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/desc_info"
@@ -223,7 +219,7 @@
                 android:layout_marginBottom="16dp"
                 android:text="@string/desc_information_home"
                 android:textAlignment="center"
-                android:textColor="@color/blue_700"
+                style="@style/Text"
                 android:textSize="14sp" />
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>

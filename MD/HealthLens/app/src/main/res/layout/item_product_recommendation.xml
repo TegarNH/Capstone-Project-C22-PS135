@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxLines="2"
-                android:textColor="@color/blue_700"
+                style="@style/Text"
                 android:textSize="15sp"
                 tools:text="andajsa sd as da sd sdfsd asdasdas " />
 

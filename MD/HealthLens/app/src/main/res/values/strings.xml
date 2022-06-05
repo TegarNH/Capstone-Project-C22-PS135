@@ -41,7 +41,7 @@
     <string name="btn_try_again">Try Again</string>
     <string name="title_result">Result</string>
     <string name="tv_summary">Summary</string>
-    <string name="title_recomendation">Recommendation</string>
+    <string name="title_recomendation">Daily Tips</string>
     <string name="desc_information_result">The result is based on probability results. The highest probability, it\'s more likely to become the result. For the best result, please refers to the guideline for taking the picture</string>
     <string name="list_recomendation">Wash your face up to 2 time a day Don’t forget to use mosturizer</string>
     <string name="title_produk">Garnier Facial Wash</string>
