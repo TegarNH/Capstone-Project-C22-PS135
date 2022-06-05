@@ -6,7 +6,7 @@
     <string name="rules4">Jaga ekspresi tetap netral</string>
     <string name="process">Proses</string>
     <string name="title_result">Hasil</string>
-    <string name="title_recomendation">Tips Harian</string>
+    <string name="title_recomendation">Rekomendasi</string>
     <string name="desc_information_result">Hasil ini didasarkan pada hasil probabilitas. Probabilitas yang tinggi akan mendekati hasil yang sesungguhnya. Untuk hasil terbaik, silakan mengacu pada pedoman untuk mengambil gambar</string>
     <string name="list_recomendation">Cuci muka maksimal 2 kali sehari Jangan lupa pakai moisturizer</string>
     <string name="title_produk">Pembersih Wajah Garnier</string>
