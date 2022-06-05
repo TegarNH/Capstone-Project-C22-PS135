@@ -41,11 +41,10 @@
     <string name="btn_try_again">Try Again</string>
     <string name="title_result">Result</string>
     <string name="tv_summary">Summary</string>
-    <string name="title_recomendation">Recomendation</string>
+    <string name="title_recomendation">Recommendation</string>
     <string name="desc_information_result">The result is based on probability results. The highest probability, it\'s more likely to become the result. For the best result, please refers to the guideline for taking the picture</string>
     <string name="list_recomendation">Wash your face up to 2 time a day Don’t forget to use mosturizer</string>
     <string name="title_produk">Garnier Facial Wash</string>
-    <string name="text_dialog_upload_photo">Uploading Photo …</string>
     <string name="text_dialog_detect_photo">Detecting photo, please wait …</string>
     <string name="tv_product_recommendation">Product Recommendation</string>
     <string name="btn_back_home">Back to Home</string>
@@ -55,4 +54,5 @@
     <string name="failed_take_picture">Failed to take picture</string>
     <string name="failed_bring_up_camera">Failed to bring up camera</string>
     <string name="not_getting_permission">Not getting permission</string>
+    <string name="text_dialog_getting_result">Getting result …</string>
 </resources>

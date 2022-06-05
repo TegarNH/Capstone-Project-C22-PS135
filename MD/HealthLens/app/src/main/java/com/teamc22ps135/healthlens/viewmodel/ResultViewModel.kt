@@ -26,7 +26,7 @@ class ResultViewModel: ViewModel() {
     ) {
         _isLoading.value = Event(true)
         val service =
-            ApiConfig.getApiService().getResult(id = "Bearer $idDetection")
+            ApiConfig.getApiService().getResult(idDetection)
         service.enqueue(object : Callback<ResultResponse> {
             override fun onResponse(
                 call: Call<ResultResponse>,

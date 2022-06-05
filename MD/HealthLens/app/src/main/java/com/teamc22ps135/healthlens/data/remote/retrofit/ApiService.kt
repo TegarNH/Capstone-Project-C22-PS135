@@ -10,20 +10,14 @@ import retrofit2.http.*
 interface ApiService {
 
     @Multipart
-//    @POST("/upload")
-    @POST("/v1/stories")
-    @Headers("Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c2VyLU9Wbm82Sk5yYWhhMHBJOWIiLCJpYXQiOjE2NTM3NTQxNDB9.H49mZUKVwDkufsPOO3t9-RIoyI27kdAb63M3z_SsW80")
+    @POST("/upload")
     fun uploadPicture(
         @Part file: MultipartBody.Part,
-//        @Part("typeDetection") typeDetection: RequestBody
-        @Part("description") typeDetection: RequestBody
+        @Part("kind_model") typeDetection: RequestBody
     ): Call<UploadResponse>
 
-//    @GET("/result")
-    @GET("/v1/stories")
+    @GET("/result")
     fun getResult(
-    @Header("Authorization") id: String,
-//        @Query("id") id: String,
-//        @Query("typeDetection") typeDetection: String
+        @Query("id") id: String?
     ): Call<ResultResponse>
 }

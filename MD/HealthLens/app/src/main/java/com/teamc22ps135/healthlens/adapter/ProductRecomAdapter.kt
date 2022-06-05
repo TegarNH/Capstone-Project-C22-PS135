@@ -8,15 +8,15 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.teamc22ps135.healthlens.R
-import com.teamc22ps135.healthlens.data.remote.response.Story
+import com.teamc22ps135.healthlens.data.remote.response.ProductList
 import com.teamc22ps135.healthlens.databinding.ItemProductRecommendationBinding
 
 class ProductRecomAdapter : RecyclerView.Adapter<ProductRecomAdapter.ViewHolder>() {
 
-    private val listProductRecom = ArrayList<Story>()
+    private val listProductRecom = ArrayList<ProductList>()
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setDataProductRecom(dataProductRecom: List<Story>) {
+    fun setDataProductRecom(dataProductRecom: List<ProductList>) {
         listProductRecom.clear()
         listProductRecom.addAll(dataProductRecom)
         notifyDataSetChanged()
@@ -41,18 +41,18 @@ class ProductRecomAdapter : RecyclerView.Adapter<ProductRecomAdapter.ViewHolder>
     class ViewHolder(private val view: ItemProductRecommendationBinding) :
         RecyclerView.ViewHolder(view.root) {
 
-        fun binding(user: Story) {
+        fun binding(productList: ProductList) {
             with(view) {
-                nameProduct.text = user.description
+                nameProduct.text = productList.name
 
                 Glide.with(itemView.context)
-                    .load(user.photoUrl)
+                    .load(productList.photo)
                     .placeholder(R.drawable.ic_baseline_photo_24)
                     .error(R.drawable.ic_baseline_photo_24)
                     .into(imageProduct)
 
                 btnBuyHere.setOnClickListener {
-                    val uri = Uri.parse(user.photoUrl)
+                    val uri = Uri.parse(productList.linkProduct)
                     val visitWebGithub = Intent(Intent.ACTION_VIEW, uri)
                     itemView.context.startActivity(visitWebGithub)
                 }

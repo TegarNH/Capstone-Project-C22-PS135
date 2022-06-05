@@ -46,8 +46,7 @@
     <string name="content_desc_btn_capture">Mengambil gambar</string>
     <string name="btn_try_again">Coba lagi</string>
     <string name="tv_summary">Ringkasan</string>
-    <string name="text_dialog_upload_photo">Mengunggah Foto …</string>
-    <string name="text_dialog_detect_photo">Mendeteksi foto, harap menunggu …</string>
+    <string name="text_dialog_detect_photo">Mendeteksi foto …</string>
     <string name="tv_product_recommendation">Rekomendasi Produk</string>
     <string name="btn_back_home">Kembali</string>
     <string name="btn_detect_again">Deteksi Lagi</string>
@@ -56,4 +55,5 @@
     <string name="failed_take_picture">Gagal mengambil gambar</string>
     <string name="failed_bring_up_camera">Gagal memunculkan kamera</string>
     <string name="not_getting_permission">Tidak mendapatkan izin</string>
+    <string name="text_dialog_getting_result">Mendapatkan hasil …</string>
 </resources>

@@ -114,12 +114,15 @@ class DetectionActivity : AppCompatActivity() {
 
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
                     val intent = Intent(this@DetectionActivity, ReviewDetectActivity::class.java)
-                    intent.putExtra("picture", photoFile)
+                    intent.putExtra(KEY_PICTURE, photoFile)
                     intent.putExtra(
-                        "isFrontCamera",
+                        KEY_IS_FRONT_CAMERA,
                         cameraSelector == CameraSelector.DEFAULT_FRONT_CAMERA
                     )
-                    intent.putExtra("resultCode", ReviewDetectActivity.CAMERA_X_RESULT)
+                    intent.putExtra(
+                        ReviewDetectActivity.KEY_RESULT_CODE,
+                        ReviewDetectActivity.CAMERA_X_RESULT
+                    )
                     startActivity(intent)
                     finish()
                 }
@@ -172,5 +175,10 @@ class DetectionActivity : AppCompatActivity() {
             )
         }
         supportActionBar?.hide()
+    }
+
+    companion object {
+        const val KEY_IS_FRONT_CAMERA = "isFrontCamera"
+        const val KEY_PICTURE = "picture"
     }
 }

@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL
 import com.teamc22ps135.healthlens.R
 import com.teamc22ps135.healthlens.adapter.ProductRecomAdapter
-import com.teamc22ps135.healthlens.data.remote.response.Story
+import com.teamc22ps135.healthlens.data.remote.response.ProductList
 import com.teamc22ps135.healthlens.databinding.ActivityResultBinding
 import com.teamc22ps135.healthlens.viewmodel.ResultViewModel
 
@@ -43,7 +43,7 @@ class ResultActivity : AppCompatActivity() {
     }
 
     private fun getIdDetection(): String? {
-        return intent.getStringExtra("idDetection")
+        return intent.getStringExtra(ReviewDetectActivity.KEY_ID_DETECTION)
     }
 
     private fun saveStateChooseDetection(state: String) {
@@ -72,9 +72,9 @@ class ResultActivity : AppCompatActivity() {
         }
 
         resultViewModel.resultDetection.observe(this@ResultActivity) { result ->
-            binding.resultSkin.text = result.message
-            setRecommendationList(result.listStory)
-            setProductRecomList(result.listStory)
+            binding.resultSkin.text = result.resultDetection
+            setRecommendationList(result.recommendationList)
+            setProductRecomList(result.productList)
         }
     }
 
@@ -92,19 +92,19 @@ class ResultActivity : AppCompatActivity() {
         binding.rvProductRecommended.adapter = productRecomAdapter
     }
 
-    private fun setRecommendationList(listRecommendation: List<Story>) {
+    private fun setRecommendationList(listRecommendation: ArrayList<String>) {
         val builder = StringBuilder()
         var number = 0
         listRecommendation.forEach { items ->
             number += 1
             builder.append(
-                "$number. ${items.description}\n"
+                "$number. $items\n"
             )
         }
         binding.pointRecommendation.text = builder
     }
 
-    private fun setProductRecomList(listProductRecom: List<Story>) {
+    private fun setProductRecomList(listProductRecom: List<ProductList>) {
         productRecomAdapter.setDataProductRecom(listProductRecom)
     }
 
@@ -155,7 +155,7 @@ class ResultActivity : AppCompatActivity() {
                 setView(
                     View.inflate(
                         this@ResultActivity,
-                        R.layout.layout_dialog_progress_detecting,
+                        R.layout.layout_dialog_progress_getting_result,
                         null
                     )
                 )

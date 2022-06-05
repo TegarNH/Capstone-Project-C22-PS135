@@ -49,7 +49,7 @@ class ReviewDetectActivity : AppCompatActivity() {
     }
 
     private fun setImagePreview() {
-        val resultCode = intent.getIntExtra("resultCode", 0)
+        val resultCode = intent.getIntExtra(KEY_RESULT_CODE, 0)
         if (resultCode == GALLERY_RESULT) {
             setImageFromGallery()
         } else if (resultCode == CAMERA_X_RESULT) {
@@ -67,8 +67,8 @@ class ReviewDetectActivity : AppCompatActivity() {
     }
 
     private fun setImageFromCamera() {
-        val myFile = intent.getSerializableExtra("picture") as File
-        val isFrontCamera = intent.getBooleanExtra("isFrontCamera", true)
+        val myFile = intent.getSerializableExtra(DetectionActivity.KEY_PICTURE) as File
+        val isFrontCamera = intent.getBooleanExtra(DetectionActivity.KEY_IS_FRONT_CAMERA, true)
 
         val result = rotateBitmap(
             BitmapFactory.decodeFile(myFile.path),
@@ -106,7 +106,7 @@ class ReviewDetectActivity : AppCompatActivity() {
         val partTypeDetection = typeDetection.toRequestBody("text/plain".toMediaType())
         val requestImageFile = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
         val imageMultipart: MultipartBody.Part = MultipartBody.Part.createFormData(
-            "photo",
+            NAME_PICTURE_MULTIPART,
             file.name,
             requestImageFile
         )
@@ -146,7 +146,7 @@ class ReviewDetectActivity : AppCompatActivity() {
                 setView(
                     View.inflate(
                         this@ReviewDetectActivity,
-                        R.layout.layout_dialog_progress_uploading,
+                        R.layout.layout_dialog_progress_detecting,
                         null
                     )
                 )
@@ -174,13 +174,9 @@ class ReviewDetectActivity : AppCompatActivity() {
     private fun isUploadSuccess(idDetection: String?) {
         val intent = Intent(this@ReviewDetectActivity, ResultActivity::class.java)
         intent.putExtra(
-            "idDetection",
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c2VyLU9Wbm82Sk5yYWhhMHBJOWIiLCJpYXQiOjE2NTM3NTQxNDB9.H49mZUKVwDkufsPOO3t9-RIoyI27kdAb63M3z_SsW80"
+            KEY_ID_DETECTION,
+            idDetection
         )
-//        intent.putExtra(
-//            "idDetection",
-//            idDetection
-//        )
         startActivity(intent)
         finish()
     }
@@ -188,5 +184,9 @@ class ReviewDetectActivity : AppCompatActivity() {
     companion object {
         const val CAMERA_X_RESULT = 10
         const val GALLERY_RESULT = 20
+
+        private const val NAME_PICTURE_MULTIPART = "picture_path"
+        const val KEY_RESULT_CODE = "resultCode"
+        const val KEY_ID_DETECTION = "idDetection"
     }
 }

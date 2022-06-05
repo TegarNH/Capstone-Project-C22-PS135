@@ -120,8 +120,11 @@ class GuidelineActivity : AppCompatActivity() {
             val uriImageCrop = result.uriContent
 
             val intent = Intent(this@GuidelineActivity, ReviewDetectActivity::class.java)
-            intent.putExtra("uri", uriImageCrop)
-            intent.putExtra("resultCode", ReviewDetectActivity.GALLERY_RESULT)
+            intent.putExtra(KEY_URI_IMAGE, uriImageCrop)
+            intent.putExtra(
+                ReviewDetectActivity.KEY_RESULT_CODE,
+                ReviewDetectActivity.GALLERY_RESULT
+            )
             startActivity(intent)
         }
     }
@@ -135,5 +138,7 @@ class GuidelineActivity : AppCompatActivity() {
     companion object {
         private val REQUIRED_PERMISSIONS = arrayOf(android.Manifest.permission.CAMERA)
         private const val REQUEST_CODE_PERMISSIONS = 10
+
+        const val KEY_URI_IMAGE = "uri"
     }
 }

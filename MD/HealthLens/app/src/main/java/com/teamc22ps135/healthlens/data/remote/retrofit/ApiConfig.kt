@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit
 class ApiConfig {
     companion object {
         fun getApiService(): ApiService {
-            val loggingInterceptor = if(BuildConfig.DEBUG) {
+            val loggingInterceptor = if (BuildConfig.DEBUG) {
                 HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
             } else {
                 HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.NONE)
@@ -31,6 +31,6 @@ class ApiConfig {
             return retrofit.create(ApiService::class.java)
         }
 
-        private const val ENDPOINT = "https://story-api.dicoding.dev/"
+        private const val ENDPOINT = "http://34.68.71.176/"
     }
 }

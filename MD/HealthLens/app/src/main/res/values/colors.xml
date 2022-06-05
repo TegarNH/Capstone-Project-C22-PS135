@@ -8,6 +8,9 @@
     <color name="orange_200">#FAD792</color>
     <color name="orange_500">#FFA905</color>
     <color name="orange_700">#C17F00</color>
+    <color name="pink_200">#ffb2dd</color>
+    <color name="pink_500">#ff80ab</color>
+    <color name="pink_700">#c94f7c</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="whiteBackground">#EEEEEE</color>

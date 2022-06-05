@@ -44,8 +44,7 @@ class ReviewDetectViewModel : ViewModel() {
                     val responseBody = response.body()
                     if (responseBody != null && !responseBody.error) {
                         _isUploadSuccess.value = Event(true)
-                        _idDetection.value = responseBody.message
-//                        _idDetection.value = responseBody.idDetection
+                        _idDetection.value = responseBody.id
                     }
                 } else {
                     _isFailed.value = Event(true)

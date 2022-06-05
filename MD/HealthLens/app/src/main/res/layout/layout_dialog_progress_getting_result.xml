@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:layout_marginStart="24dp"
-        android:text="@string/text_dialog_upload_photo"
+        android:text="@string/text_dialog_getting_result"
         android:textColor="@color/black" />
 
 </LinearLayout>
