@@ -16,4 +16,15 @@
     <style name="RippleColorTheme" parent="Widget.AppCompat.ActionButton">
         <item name="colorControlHighlight">@color/blue_100</item>
     </style>
+
+    <style name="Header">
+        <item name="android:textColor">@color/blue_700</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/Lato</item>
+    </style>
+
+    <style name="Text">
+        <item name="android:textColor">@color/blue_700</item>
+        <item name="android:fontFamily">@font/Raleway</item>
+    </style>
 </resources>
