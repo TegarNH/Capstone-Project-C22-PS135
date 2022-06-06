@@ -31,6 +31,6 @@ class ApiConfig {
             return retrofit.create(ApiService::class.java)
         }
 
-        private const val ENDPOINT = "http://34.68.71.176/"
+        private const val ENDPOINT = "http://104.197.16.252/"
     }
 }
