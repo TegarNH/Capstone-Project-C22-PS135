@@ -117,9 +117,9 @@ Thus, there are chances that people don't use the skincare product wisely and su
 
 
 ## Contact us
-* Miftahul Ardli (M2011G1151) - [miftahul18002@mail.unpad.ac.id](https://mail.google.com/mail/u/0/#inbox?compose=new)
-* Ni Luh Melika Candra Widyani Mas (M2232F2123) - [melika.candra@gmail.com](https://mail.google.com/mail/u/0/#inbox?compose=new)
-* Alvin Steven (C2007F0655) - [112201906310@mhs.dinus.ac.id](https://mail.google.com/mail/u/0/#inbox?compose=new)
-* Muhammad Alwi Abdul Aziz (C7007F0656) - [112201906316@mhs.dinus.ac.id](https://mail.google.com/mail/u/0/#inbox?compose=new)
-* Tegar Naufal Hanip (A7009F0996) - [tegarnaufalh@gmail.com](https://mail.google.com/mail/u/0/#inbox?compose=new)
-* Vinna Mariska (A2009f0997) - [vinna.mariska@gmail.com](https://mail.google.com/mail/u/0/#inbox?compose=new)
+* Miftahul Ardli (M2011G1151) - [miftahul18002@mail.unpad.ac.id](mailto:miftahul18002@mail.unpad.ac.id)
+* Ni Luh Melika Candra Widyani Mas (M2232F2123) - [melika.candra@gmail.com](mailto:melika.candra@gmail.com)
+* Alvin Steven (C2007F0655) - [112201906310@mhs.dinus.ac.id](mailto:112201906310@mhs.dinus.ac.id)
+* Muhammad Alwi Abdul Aziz (C7007F0656) - [112201906316@mhs.dinus.ac.id](mailto:112201906316@mhs.dinus.ac.id)
+* Tegar Naufal Hanip (A7009F0996) - [tegarnaufalh@gmail.com](mailto:tegarnaufalh@gmail.com)
+* Vinna Mariska (A2009f0997) - [vinna.mariska@gmail.com](mailto:vinna.mariska@gmail.com)
