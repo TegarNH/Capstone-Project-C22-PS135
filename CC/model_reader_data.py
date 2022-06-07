@@ -9,6 +9,7 @@ import json
 import calendar
 import time
 
+
 def model_reader_data(kind_model, picture_path):
 
     #kind_model = sys.argv[1] #masukin input jenis model
@@ -16,11 +17,11 @@ def model_reader_data(kind_model, picture_path):
     if kind_model == "type":
         model_path = "skin-type-model-80.h5"
     elif kind_model == "disease":
-        model_path = "skin-disease-model-75.h5"    
+        model_path = "skin-disease-model-75.h5"
     #picture_path = sys.argv[2] # masukin input path gambar
 
     #print(model_path, picture_path)
-    model = load_model(model_path) #load model 
+    model = load_model(model_path)  # load model
 
     #untuk atur file gambar
     img = image.load_img(picture_path, target_size=(150, 150))
@@ -29,15 +30,15 @@ def model_reader_data(kind_model, picture_path):
     x = np.expand_dims(x, axis=0)
     images = np.vstack([x])
 
-
-    classes = model.predict(images, batch_size=10) #untuk memprediksi model berdasarkan gambar
+    # untuk memprediksi model berdasarkan gambar
+    classes = model.predict(images, batch_size=10)
     #print(classes[0]) #array hasil
-    value = max(classes[0]) #ambil hasil terbesar
+    value = max(classes[0])  # ambil hasil terbesar
     #print(value)
 
     #ambil indeks berdasarkan hasil terbesar
     i = 0
-    index_value=0
+    index_value = 0
     for result in classes[0]:
         if result == value:
             index_value = i
@@ -65,8 +66,8 @@ def model_reader_data(kind_model, picture_path):
             skin_value = "Wrinkles"
     #print(skin_value)
 
-    path_data_rekomendasi="data_rekomendasi.csv"
-    path_data_produk="data_produk.csv"
+    path_data_rekomendasi = "data_rekomendasi.csv"
+    path_data_produk = "data_produk.csv"
     data_rekomendasi = pd.read_csv(path_data_rekomendasi, encoding="latin1")
     data_produk = pd.read_csv(path_data_produk, encoding="latin1")
     # type: 11 = dry, 12 = normal, 13 = acne, 14 = sensitive
@@ -94,7 +95,7 @@ def model_reader_data(kind_model, picture_path):
         hasil_produk = data_produk.query("Rekomendasi == 23")
     elif skin_value == "Wrinkles":
         hasil_rekomendasi = data_rekomendasi.query("Rekomendasi  == 24")
-        hasil_produk = data_produk.query("Rekomendasi == 24")    
+        hasil_produk = data_produk.query("Rekomendasi == 24")
     #print(hasil_rekomendasi.iloc[0][1])
     #print(hasil_produk.iloc[0][1])
     #print(len(hasil_rekomendasi))
@@ -104,17 +105,22 @@ def model_reader_data(kind_model, picture_path):
         rekomendation_list.append(hasil_rekomendasi.iloc[value][1])
         #print(rekomendation_list[value])
     for value in range(len(hasil_produk)):
-        product_list.append({"photo" : os.getcwd()+"/"+hasil_produk.iloc[value][2], "name" : hasil_produk.iloc[value][1], "linkProduct" : hasil_produk.iloc[value][3]})
+        product_list.append(
+            {"photo": hasil_produk.iloc[value][2], "name": hasil_produk.iloc[value][1], "linkProduct": hasil_produk.iloc[value][3]})
         #print(product_list[value])
 
-
-    id_predict = str(calendar.timegm(time.gmtime())) #membuat id berdasarkan timestamp
+    # membuat id berdasarkan timestamp
+    id_predict = str(calendar.timegm(time.gmtime()))
     print(id_predict)
-    dictionary = {"error" : False, "message": "success", "id":id_predict, "resultDetection" : skin_value, "rekomendationList" : rekomendation_list, "productList" : product_list }
-    json_object = json.dumps(dictionary, indent=4) #memasukkan dictionary ke bentuk json object
+    dictionary = {"error": False, "message": "success", "id": id_predict, "resultDetection": skin_value,
+                  "rekomendationList": rekomendation_list, "productList": product_list}
+    # memasukkan dictionary ke bentuk json object
+    json_object = json.dumps(dictionary, indent=4)
     #print("result_json/"+str(id_predict)+".json")
-    json_file = open("result_json/"+str(id_predict)+".json", "w") #membuat file .json dan menentukan nama filenya
-    json_file.write(json_object) #menulis json object ke file .json yang udah dibuat
+    # membuat file .json dan menentukan nama filenya
+    json_file = open("result_json/"+str(id_predict)+".json", "w")
+    # menulis json object ke file .json yang udah dibuat
+    json_file.write(json_object)
     #json_file = open("result_json/"+str(id_predict)+".json", "r")
-    json_file.close() #menutup file
+    json_file.close()  # menutup file
     return jsonify({"error": dictionary["error"], "message": dictionary["message"], "id": dictionary["id"]})
