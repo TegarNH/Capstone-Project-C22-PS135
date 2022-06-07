@@ -37,8 +37,6 @@
   <h2 align="center">~ Mind Your Skin Health ~</h2>
 
   <p align="center">
-    Documentation Available Here:
-    <br />
     ·
     <a href="https://github.com/TegarNH/Capstone-Project-C22-PS135/issues">Report Bug</a>
   </p>
