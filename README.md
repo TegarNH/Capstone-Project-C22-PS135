@@ -59,19 +59,18 @@
     <li>
       <a href="#documentation">Documentation</a>
       <ul>
-        <li><a href="#machine-learning"Machine Learning</a></li>
-        <li><a href="#cloud-computing"Cloud Computing</a></li>
-        <li><a href="#mobile-development"Mobile Development</a></li>
+        <li><a href="#machine-learning">Machine Learning</a></li>
+        <li><a href="#cloud-computing">Cloud Computing</a></li>
+        <li>
+          <a href="#mobile-development">Mobile Development</a>
+          <ul>
+            <li><a href="#prerequisites">Prerequisites</a></li>
+            <li><a href="#installation">Installation</a></li>
+            <li><a href="#usage">How to use</a></li>
+          </ul>
+        </li>
       </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">How to use</a></li>
+    </li> 
     <li><a href="#contact">Contact us</a></li>
   </ol>
 </details>
@@ -119,24 +118,16 @@ The Classifier approximately have accuracy up to 75% for skin disease and 80-82%
 <br/>
 
 ### Mobile Development
-<br/>
-<br/>
-
-
-## Getting Started
-### Prerequisites
+#### Prerequisites
 1. Android 5.0 Lollipop (SDK 21) or above.
 2. Internet Connection.
 3. Good condition Front Camera.
 
-### Installation
+#### Installation
 1. Download the APK Files [here](https://drive.google.com/file/d/1OdWTDYbW6O70uuBJVOS22GHq0XsITwgA/view?usp=sharing).
 2. Install APK FIles (Allow permission install from Unknown Source).
-<br/>
-<br/>
 
-
-## How to use
+#### How to use
 1. Open App.
 2. Press the "Get Started" botton on Landing Page.
 3. Select the desired Detection Type (Skin Disease or Skin Type).
