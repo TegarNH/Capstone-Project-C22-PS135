@@ -1,4 +1,4 @@
-# Capstone Team C22-PS135 []
+# Capstone Team C22-PS135 [RendangBakar Team]
 <!--
 *** Thanks for checking out the Best-README-Template. If you have a suggestion
 *** that would make this better, please fork the repo and create a pull request
@@ -41,8 +41,6 @@
     <br />
     ·
     <a href="https://github.com/TegarNH/Capstone-Project-C22-PS135/issues">Report Bug</a>
-    ·
-    <a href="">Endpoint Documentation</a>
   </p>
 </p>
 <br/>
@@ -85,8 +83,6 @@ Thus, there are chances that people don't use the skincare product wisely and su
 * [Google Cloud Platform Services](https://cloud.google.com/gcp)
 * [Google Colaboratory](https://research.google.com/colaboratory/)
 * [Python Programming Language (Version 3)](https://www.python.org/)
-<br/>
-<br/>
 
 ### Library
 * Pandas
@@ -94,6 +90,9 @@ Thus, there are chances that people don't use the skincare product wisely and su
 * Tensorflow
 * Keras
 * Zipfile
+<br/>
+<br/>
+
 
 ## Getting Started
 ### Prerequisites
