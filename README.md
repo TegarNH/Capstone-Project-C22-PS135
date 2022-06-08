@@ -123,9 +123,11 @@ The Classifier approximately have accuracy up to 75% for skin disease and 80-82%
 1. Python 3.7>
 2. Flask
 3. Numpy, Keras. TensorFlow, Pandas, (requirement.txt)
-#### How to Run
+
+### How to Run
 1. use virtualenv and run flask with python
 2. and goto <ip>/upload
+  
 ### Mobile Development
 #### Prerequisites
 1. Android 5.0 Lollipop (SDK 21) or above.
