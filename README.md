@@ -126,7 +126,7 @@ The Classifier approximately have accuracy up to 75% for skin disease and 80-82%
 
 ### How to Run
 1. use virtualenv and run flask with python
-2. and goto <ip>/upload
+2. and goto "ip"/upload
   
 ### Mobile Development
 #### Prerequisites
