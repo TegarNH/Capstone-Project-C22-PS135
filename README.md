@@ -99,6 +99,7 @@ Thus, there are chances that people don't use the skincare product wisely and su
 * [Numpy](https://numpy.org/)
 * [Tensorflow](https://www.tensorflow.org/)
 * [Keras](https://keras.io/)
+* [Flask](https://flask.palletsprojects.com)
 * [Zipfile](https://docs.python.org/3/library/zipfile.html)
 * [Retrofit](https://square.github.io/retrofit/)
 * [Glide](https://github.com/bumptech/glide)
@@ -119,7 +120,12 @@ The Classifier approximately have accuracy up to 75% for skin disease and 80-82%
 
 ### Cloud Computing
 <br/>
-
+1. Python 3.7>
+2. Flask
+3. Numpy, Keras. TensorFlow, Pandas, (requirement.txt)
+#### How to Run
+1. use virtualenv and run flask with python
+2. and goto <ip>/upload
 ### Mobile Development
 #### Prerequisites
 1. Android 5.0 Lollipop (SDK 21) or above.
@@ -147,7 +153,7 @@ The Classifier approximately have accuracy up to 75% for skin disease and 80-82%
 ## Contact us
 * Miftahul Ardli (M2011G1151) - [miftahul18002@mail.unpad.ac.id](mailto:miftahul18002@mail.unpad.ac.id)
 * Ni Luh Melika Candra Widyani Mas (M2232F2123) - [melika.candra@gmail.com](mailto:melika.candra@gmail.com)
-* Alvin Steven (C2007F0655) - [112201906310@mhs.dinus.ac.id](mailto:112201906310@mhs.dinus.ac.id)
+* Alvin Steven (C2007F0655) - [alvin.pin108@gmail.com](mailto:alvin.pin108@gmail.com)
 * Muhammad Alwi Abdul Aziz (C7007F0656) - [112201906316@mhs.dinus.ac.id](mailto:112201906316@mhs.dinus.ac.id)
 * Tegar Naufal Hanip (A7009F0996) - [tegarnaufalh@gmail.com](mailto:tegarnaufalh@gmail.com)
 * Vinna Mariska (A2009f0997) - [vinna.mariska@gmail.com](mailto:vinna.mariska@gmail.com)
