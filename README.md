@@ -41,7 +41,7 @@
     <a href="https://github.com/TegarNH/Capstone-Project-C22-PS135/issues">Report Bug</a>
   </p>
   
-  <a href="https://github.com/TegarNH/Capstone-Project-C22-PS135">
+  <a href="https://github.com/TegarNH/Capstone-Project-C22-PS135/MD/Design/HealthLensBanner.png">
     <img src="MD/Design/HealthLensBanner.png" alt="Banner" width="3200">
   </a>
 </p>
