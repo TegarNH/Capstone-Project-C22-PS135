@@ -119,15 +119,107 @@ The Classifier approximately have accuracy up to 75% for skin disease and 80-82%
 <br/>
 
 ### Cloud Computing
-<br/>
-1. Python 3.7>
+1. Python 3.7
 2. Flask
 3. Numpy, Keras. TensorFlow, Pandas, (requirement.txt)
 
-### How to Run
+#### How to Run
 1. use virtualenv and run flask with python
 2. and goto "ip"/upload
-  
+
+#### Endpoint
+http://104.197.16.252/
+
+#### Upload
+<ul>
+  <li>URL
+    <ul>
+      <li><code>/upload</code></li>
+    </ul>
+  </li>
+  <li>Method
+    <ul>
+      <li>POST</li>
+    </ul>
+  </li>
+  <li>Headers
+    <ul>
+      <li>
+        <code>Content-Type</code> : <code>multipart/form-data</code>
+      </li>
+    </ul>
+  </li>
+  <li>Request Body
+    <ul>
+      <li>
+        <code>picture_path</code> as <code>file</code> 
+      </li>
+      <li>
+        <code>kind_model</code> as <code>string</code> 
+      </li>
+    </ul>
+  </li>
+  <li>Response</li>
+
+```
+{
+    "error": false,
+    "message": "success",
+    "id": "1654407149"
+}
+```
+
+</ul>
+
+#### Result
+<ul>
+  <li>URL
+    <ul>
+      <li><code>/result</code></li>
+    </ul>
+  </li>
+  <li>Method
+    <ul>
+      <li>GET</li>
+    </ul>
+  </li>
+  <li>Parameters
+    <ul>
+      <li>
+        <code>id</code> as <code>string</code>
+      </li>
+    </ul>
+  </li>
+  <li>Response</li>
+
+```
+{
+  "error": false, 
+  "id": "1654407149", 
+  "message": "success", 
+  "productList": [
+    {
+      "linkProduct": "https://www.tokopedia.com/synergypusat/elemence-vera-gel", 
+      "name": "Elemence Vera Gel", 
+      "photo": "/home/a7009f0996/Gambar/24_Wrinkles/1.png"
+    }
+  ], 
+  "rekomendationList": [
+    "Using aloe vera gel", 
+    "use vitamin C in the form of L-ascorbic acid", 
+    "Avoid sun exposure", 
+    "Use the right skin care products", 
+    "Use a serum that contains retinol", 
+    "Drinks that contain collagen"
+  ], 
+  "resultDetection": "Wrinkles"
+}
+```
+
+</ul>
+
+<br/>
+
 ### Mobile Development
 #### Prerequisites
 1. Android 5.0 Lollipop (SDK 21) or above.
