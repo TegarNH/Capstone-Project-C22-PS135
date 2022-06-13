@@ -227,7 +227,7 @@ http://104.197.16.252/
 3. Good condition Front Camera.
 
 #### Installation
-1. Download the APK Files [here](https://drive.google.com/file/d/1OdWTDYbW6O70uuBJVOS22GHq0XsITwgA/view?usp=sharing).
+1. Download the APK Files [here](https://drive.google.com/file/d/16VFXb8_nopExz600548qxxIaUeicEZJK/view?usp=sharing).
 2. Install APK FIles (Allow permission install from Unknown Source).
 
 #### How to use
